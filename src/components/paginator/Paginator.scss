@@ -1,0 +1,62 @@
+.Paginator {
+  padding: 12px 25px;
+  // padding-top: 19px;
+  display: flex;
+  justify-content: flex-end;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    li {
+      button {
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        width: 35px;
+
+        color: #243264;
+        font-size: 16px;
+        font-weight: 700;
+        font-style: normal;
+        letter-spacing: normal;
+        line-height: 23px;
+        text-align: left;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 0 8px;
+      }
+
+      &.icons button {
+        font-size: 22px;
+      }
+
+      &.active,
+      &:hover {
+        button {
+          color: #e99837;
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  .Paginator {
+    ul {
+      li {
+        button {
+          color: #767f8b;
+        }
+
+        &.active,
+        &:hover {
+          button {
+            color: #ebcc86;
+          }
+        }
+      }
+    }
+  }
+}

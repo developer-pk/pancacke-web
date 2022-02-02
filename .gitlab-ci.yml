@@ -1,0 +1,35 @@
+image: node:latest
+stages:
+  - deploy
+
+# deploy_dev:
+#   stage: deploy
+#   only:
+#     - develop
+#   # when: manual
+#   before_script:
+#     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
+#     - eval $(ssh-agent -s)
+#     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+#     - mkdir -p ~/.ssh
+#     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+#   script:
+#     - ssh $SERVER_USERNAME@$SERVER_HOST "sh ~/pancake/deploy-web.sh && exit"
+
+deploy_prod:
+  stage: deploy
+  only:
+    - master
+  # when: manual
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - ssh $SERVER_USERNAME@$SERVER_HOST "sh ~/scr/deploy-web.sh && exit"
+  environment:
+    name: prod
+    url: https://app.tcake.io
+

@@ -1,0 +1,5 @@
+export const AlertConstants = {
+  WARNING_ALERT: 'WARNING_ALERT',
+  SUCCESS_ALERT: 'SUCCESS_ALERT',
+  REMOVE_ALERT: 'REMOVE_ALERT',
+};

@@ -1,0 +1,212 @@
+.ExplorerPage {
+  .Row {
+    display: flex;
+    flex-direction: row;
+
+    .Chart {
+      margin-left: 30px;
+    }
+
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+
+      & > * {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+    }
+  }
+
+  .tokenInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      margin-right: 15px;
+    }
+
+    h2 {
+      color: var(--black);
+      font-size: 16px;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: normal;
+      line-height: 23px;
+      margin: 0;
+    }
+  }
+
+  .Card {
+    max-width: 225px;
+
+    @media screen and (max-width: 1000px) {
+      max-width: unset;
+    }
+  }
+
+  .favouritePair {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      color: #243264;
+      font-size: 14px;
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: normal;
+      line-height: 32px;
+      margin-right: 11px;
+      margin-bottom: 0;
+    }
+
+    div {
+      display: flex;
+    }
+  }
+
+  .tokenPrice {
+    h1 {
+      color: #243264;
+      font-size: 18px;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: normal;
+      line-height: 19px;
+      text-align: left;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .currency {
+      font-size: 10px;
+    }
+
+    h3 {
+      color: #243264;
+      font-size: 11px;
+      text-align: left;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: normal;
+      line-height: normal;
+      white-space: nowrap;
+
+      .plus {
+        color: #80cb44;
+      }
+
+      .minus {
+        color: #ef1841;
+      }
+    }
+  }
+
+  .textWithSmallButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    p {
+      color: #243264;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+      text-transform: uppercase;
+      font-style: normal;
+      letter-spacing: normal;
+      line-height: 19px;
+      margin-right: 11px;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+
+    .button {
+      background-color: transparentize($color: #b2aaca, $amount: 0.68);
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      cursor: pointer;
+
+      color: #243264;
+      font-size: 10px;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: normal;
+      line-height: 23px;
+      text-align: center;
+      text-transform: uppercase;
+
+      text-decoration: none;
+      padding: 0 8px;
+
+      transition: color 0.15s linear, background-color 0.15s linear;
+
+      &:hover {
+        color: var(--white);
+        background-color: #e99837;
+      }
+    }
+  }
+
+  .LastTransactions {
+    margin-top: 25px;
+  }
+}
+
+.dark {
+  .ExplorerPage {
+    .tokenInfo {
+      h2 {
+        color: #9ca7b4;
+      }
+    }
+
+    .favouritePair {
+      h3 {
+        color: #7f8994;
+      }
+    }
+
+    .tokenPrice {
+      h1 {
+        color: #98a2af;
+      }
+      h3 {
+        color: #808a96;
+      }
+    }
+
+    .textWithSmallButton {
+      p {
+        color: #87919d;
+      }
+
+      .button {
+        background-color: transparentize($color: #1e242c, $amount: 0.68);
+        color: #767f8b;
+
+        &:hover {
+          color: var(--white);
+          background-color: #ebcc86;
+        }
+      }
+    }
+  }
+}

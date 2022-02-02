@@ -1,0 +1,33 @@
+.primary-button {
+  background-color: var(--button-color);
+  border: none;
+  padding: 12px 24px;
+  color: var(--white);
+  font-weight: 700;
+  border-radius: 50px;
+  text-transform: uppercase;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    cursor: initial;
+    opacity: 0.6;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__spinner {
+    transform-origin: center;
+    animation: rotate 1s infinite;
+  }
+}

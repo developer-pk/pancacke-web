@@ -1,0 +1,42 @@
+.WalletBar {
+  text-align: right;
+  margin-bottom: 25px;
+}
+
+.WalletBar,
+.modal-body {
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: rgba(178, 170, 202, 0.32);
+    border-radius: 10px;
+    color: #8f80ba;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: background-color 0.15s linear, color 0.15s linear;
+    &:hover {
+      background-color: #e99837;
+      color: var(--white);
+    }
+  }
+
+  p {
+    color: var(--black);
+  }
+}
+
+.dark {
+  .WalletBar,
+  .modal-body {
+    button {
+      background-color: #2c343e;
+      color: #ebcc86;
+
+      &:hover {
+        background-color: #ebcc86;
+        color: var(--white);
+      }
+    }
+  }
+}

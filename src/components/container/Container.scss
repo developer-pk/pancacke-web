@@ -1,0 +1,10 @@
+.Container {
+  // padding: 50px;
+  padding-right:15px;
+  padding-left:15px;
+  flex-grow: 1;
+
+  @media screen and (max-width: 1000px) {
+    padding: 25px;
+  }
+}

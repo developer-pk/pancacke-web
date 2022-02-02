@@ -1,0 +1,35 @@
+.Chart {
+  background-color: var(--white);
+  box-shadow: 3px 4px 18px rgba(143, 128, 185, 0.23);
+  border-radius: 10px;
+  width: 100%;
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (max-width: 1000px) {
+    min-height: 500px;
+    box-sizing: border-box;
+    margin-top: 25px;
+  }
+
+  .chart-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    iframe {
+      width: calc(100%) !important;
+      height: calc(100%) !important;
+    }
+  }
+}
+
+.dark {
+  .Chart {
+    background-color: #131722;
+    box-shadow: 3px 4px 16px rgba(0, 0, 0, 0.21);
+  }
+}

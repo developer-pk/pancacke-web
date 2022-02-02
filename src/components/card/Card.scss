@@ -1,0 +1,40 @@
+.Card {
+  width: 100%;
+
+  .Header {
+    background-color: #ebcc86;
+    border-radius: 10px 10px 0 0;
+
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 23px;
+    text-align: center;
+    text-transform: uppercase;
+
+    padding: 22px;
+  }
+
+  .Body {
+    background-color: transparentize($color: #8f80ba, $amount: 0.92);
+    padding: 17px 25px;
+
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+.dark {
+  .Card {
+    .Header {
+      background-color: #1e242c;
+      color: #9ca7b4;
+    }
+
+    .Body {
+      background-color: #2c343e;
+      // background-color: transparentize($color: #2c343e, $amount: 0.92);
+    }
+  }
+}

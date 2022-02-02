@@ -1,0 +1,42 @@
+.Bell {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  font-size: 17px;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  color: #243264;
+  margin-left: auto;
+  cursor: pointer;
+  i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.15s linear, color 0.15s linear;
+  }
+
+  .icon-bell-alt {
+    opacity: 0;
+  }
+
+  &:hover {
+    i {
+      opacity: 1;
+      color: #e99837;
+    }
+  }
+}
+
+.Bell.isActive {
+  background-color: #e99837;
+
+  &:hover {
+    i {
+      opacity: 1;
+      color: #fff;
+    }
+  }
+}

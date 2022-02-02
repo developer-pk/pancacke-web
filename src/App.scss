@@ -1,0 +1,164 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.App {
+  display: flex;
+  background-color: #f6f4f7;
+  min-height: 100vh;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
+}
+
+// Select component
+.react-select-custom {
+  &__control {
+    background-color: transparentize($color: #f6f5fa, $amount: 0.69) !important;
+    border: 1px solid transparentize($color: #6371a5, $amount: 0.69) !important;
+    border-radius: 10px !important;
+    min-height: 30px !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  &__control--menu-is-open {
+    background-color: var(--white) !important;
+    border-color: var(--white) !important;
+    border-radius: 10px 10px 0 0 !important;
+
+    .react-select-custom__indicator {
+      color: #e99837 !important;
+    }
+  }
+
+  &__value-container {
+    padding: 0 8px !important;
+  }
+
+  &__indicator {
+    font-size: 12px !important;
+  }
+
+  &__input,
+  &__single-value,
+  &__placeholder {
+    color: transparentize($color: #243264, $amount: 0.67);
+    font-size: 9px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 23px;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  &__placeholder {
+    pointer-events: none;
+  }
+
+  &__input,
+  &__single-value {
+    color: #243264 !important;
+  }
+  &__indicator-separator {
+    display: none !important;
+  }
+
+  &__menu {
+    background: var(--white) !important;
+    margin-top: 0px !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-radius: 0 0 15px 15px !important;
+  }
+
+  &__option--is-selected,
+  &__option--is-focused {
+    background-color: transparentize($color: #eeebf2, $amount: 0.68);
+  }
+
+  &__placeholder {
+  }
+}
+
+hr {
+  border: 1px inset;
+  border-bottom: none;
+  color: transparentize($color: #243264, $amount: 0.86);
+  margin-block-start: 27px;
+  margin-block-end: 27px;
+}
+
+.dark {
+  hr {
+    color: #1e242c;
+  }
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.success {
+  color: #80cb44 !important;
+}
+
+.danger {
+  color: #ef1841 !important;
+}
+
+.dark {
+  background-color: #232a32;
+
+  .react-select-custom {
+    &__control {
+      background-color: transparentize($color: #1e242c, $amount: 0.69) !important;
+      border: 1px solid transparentize($color: #87919d, $amount: 0.69) !important;
+    }
+
+    &__control--menu-is-open {
+      background-color: #1e242c !important;
+      border-color: #1e242c !important;
+
+      .react-select-custom__indicator {
+        color: #ebcc86 !important;
+      }
+    }
+
+    &__input,
+    &__single-value,
+    &__placeholder {
+      // color: transparentize($color: #87919d, $amount: 0.67);
+      color: #87919d;
+    }
+
+    &__input,
+    &__single-value {
+      color: #87919d !important;
+    }
+
+    &__menu {
+      background: #1e242c !important;
+    }
+
+    &__option--is-selected,
+    &__option--is-focused {
+      background-color: transparentize($color: #87919d, $amount: 0.68);
+    }
+
+    &__placeholder {
+    }
+  }
+}

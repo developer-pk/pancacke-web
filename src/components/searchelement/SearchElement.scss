@@ -1,0 +1,26 @@
+.SearchElement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    margin-right: 11px;
+  }
+
+  color: #243264;
+  font-size: 12px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  text-transform: uppercase;
+  line-height: normal;
+}
+
+.dark {
+  .SearchElement {
+    color: #ebcc86;
+  }
+}

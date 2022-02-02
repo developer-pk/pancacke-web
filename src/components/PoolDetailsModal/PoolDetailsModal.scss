@@ -1,0 +1,41 @@
+.pool-modal {
+  &__heading {
+    color: var(--black);
+  }
+
+  &__secondary-heading {
+    margin-top: 24px;
+    color: var(--black);
+    font-size: 18px;
+  }
+
+  &__tableWrapper {
+    overflow-x: auto;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--button-color);
+      /* outline: 1px solid slategrey; */
+    }
+  }
+
+  &__link {
+    color: var(--link-color);
+  }
+
+  &____no-transactions {
+    color: var(--black);
+  }
+
+  &__close-button {
+    margin-top: 24px;
+  }
+}

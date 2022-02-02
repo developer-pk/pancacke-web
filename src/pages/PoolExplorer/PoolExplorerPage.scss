@@ -1,0 +1,56 @@
+@import '../../styles/table';
+
+.PoolExplorerPage {
+  .Card {
+    padding: 0px 0;
+    background-color: var(--white);
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+  }
+
+  .btn.btn-link,
+  a {
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+
+    text-decoration: none;
+    color: var(--link-color);
+
+    &:hover {
+      color: var(--link-color-hover);
+    }
+  }
+
+  table {
+    tbody.loading {
+      opacity: 0.5;
+    }
+  }
+
+  .version-label {
+    color: var(--black);
+    margin: 0 12px 0 0;
+  }
+
+  input {
+    background-color: var(--white);
+    border: 1px solid transparentize($color: #6371a5, $amount: 0.69) !important;
+    border-radius: 10px !important;
+    min-height: 30px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 8px 10px;
+    min-width: 320px;
+
+    font-weight: 600;
+    color: var(--primary-color);
+
+    transition: border-color 0.15s linear;
+
+    &:focus {
+      border-color: var(--link-color) !important;
+    }
+  }
+}

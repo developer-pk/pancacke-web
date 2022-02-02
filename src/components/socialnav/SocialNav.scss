@@ -1,0 +1,34 @@
+.SocialNav {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  li {
+    a {
+      color: #e99837;
+      font-size: 18px;
+      transition: color 0.15s linear;
+      padding: 10px;
+
+      &:hover {
+        color: lighten($color: #e99837, $amount: 15);
+        text-shadow: 0 0 5px transparentize($color: #e99837, $amount: 0.9);
+      }
+    }
+  }
+}
+
+.dark {
+  .SocialNav {
+    li {
+      a {
+        color: #5d6671;
+
+        &:hover {
+          color: lighten($color: #ebcc86, $amount: 15);
+          text-shadow: 0 0 5px transparentize($color: #ebcc86, $amount: 0.9);
+        }
+      }
+    }
+  }
+}

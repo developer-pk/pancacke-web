@@ -1,0 +1,26 @@
+.pool-item {
+  transition: 0.3s;
+
+  & .icon {
+    transition: 0.3s;
+    opacity: 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+
+    & .icon {
+      opacity: 1;
+    }
+  }
+
+  & .action-link {
+    margin: 0 5px;
+
+    .dark &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+}

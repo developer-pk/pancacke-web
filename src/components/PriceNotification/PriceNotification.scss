@@ -1,0 +1,52 @@
+.alarm-modal {
+  &__heading {
+    color: var(--black);
+  }
+
+  &__form {
+    margin-top: 14px;
+  }
+
+  &__input-container {
+    margin-top: 14px;
+  }
+
+  &__input-label {
+    color: var(--black);
+  }
+
+  &__flex {
+    display: flex;
+  }
+
+  &__input {
+    background-color: var(--white);
+    border: 1px solid transparentize($color: #6371a5, $amount: 0.69) !important;
+    border-radius: 10px !important;
+    min-height: 30px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 8px 10px;
+    margin-right: 4px;
+    width: 100%;
+
+    font-weight: 600;
+    color: var(--primary-color);
+
+    transition: border-color 0.15s linear;
+
+    &:focus {
+      border-color: var(--link-color) !important;
+    }
+  }
+
+  &__btn {
+    padding: 8px 5px;
+  }
+
+  &__footer-btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 24px;
+  }
+}

@@ -1,0 +1,97 @@
+.Navbar {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  min-width: 270px;
+  box-shadow: 3px 4px 16px rgba(0, 0, 0, 0.21);
+  min-height: calc(100vh - 128px);
+  padding: 64px 0px;
+  align-items: center;
+  background-color: var(--white);
+
+  .logo {
+    margin-bottom: 112px;
+  }
+
+  // Component
+  .Navigation {
+    margin-bottom: 46px;
+  }
+}
+
+button.switchTheme {
+  margin-bottom: 46px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(178, 170, 202, 0.32);
+  border-radius: 10px;
+  color: #8f80ba;
+  font-size: 18px;
+
+  transition: background-color 0.15s linear, color 0.15s linear;
+
+  [class*='icon']::before {
+    margin: 0;
+  }
+
+  &:hover {
+    background-color: #e99837;
+    [class*='icon'] {
+      color: var(--white);
+    }
+  }
+}
+
+.Navbar-mobile {
+  nav {
+    background-color: var(--white);
+    box-shadow: 3px 4px 16px rgba(0, 0, 0, 0.21);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding-right: 13px;
+    box-sizing: border-box;
+    .logo > img {
+      height: 65px;
+    }
+  }
+  height: 69px;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button.switchTheme {
+    margin-bottom: 0;
+    margin-right: 14px;
+  }
+}
+
+.dark {
+  .Navbar {
+    background-color: #1e242c;
+    box-shadow: 3px 4px 16px rgba(0, 0, 0, 0.21);
+  }
+
+  .Navbar-mobile {
+    nav {
+      background-color: #1e242c;
+      box-shadow: 3px 4px 16px rgba(0, 0, 0, 0.21);
+    }
+  }
+
+  button.switchTheme {
+    background-color: #2c343e;
+    color: #ebcc86;
+
+    &:hover {
+      background-color: #ebcc86;
+    }
+  }
+}
