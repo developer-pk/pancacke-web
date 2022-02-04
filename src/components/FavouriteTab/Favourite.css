@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+.App{background-color:transparent;}
+
 body {
-    background: #232a32;
+    background: #232a32!important;
     /* padding: 0px 30px;   */
     /*font-family: 'Montserrat'!important;*/
 }
@@ -14,9 +16,32 @@ body {
 nav#mainNav {
     background: #131722;
     border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-right-radius: 15px;padding:3px 10px;
 }
-
+div#navbarResponsive ul {
+    display: flex;
+    justify-content: flex-end;
+}
+.search {
+    height: 38px;
+    width: 360px;
+    color: #fff;
+    background: #2f3945;
+    border-radius: 100px;
+    padding: 0 15px;
+    border: none;
+}
+.search .css-yk16xz-control {
+    background: transparent!important;
+    border: none!important;
+}
+.WalletBar {
+    display: none;
+}
+.HomeNavBar {
+    margin-bottom: 30px;
+}
+.search input{font-size: 14px;}
 input#search {
     height: 38px;
     width: 360px;
@@ -26,7 +51,10 @@ input#search {
     padding: 0 15px;
     border: none;
 }
-
+.Card .Header {
+    background: #1e242c;
+    color: #9ca7b4;
+}
 .navbar-nav.ms-auto {
     display: flex;
     width: 100%;
@@ -58,7 +86,87 @@ input#search {
     margin-bottom: 30px;
     border-radius: 12px;
     color: #87919d;
+    max-width: 225px;
 }
+div#tv_chart_container {
+    background: #131722;
+    border-radius: 12px;
+    padding: 11px;
+}
+body.chart-page.unselectable.on-widget {
+    background-color: transparent!important;
+}
+.ExplorerPage .Row .Chart {
+    margin-left: 30px;
+    background: transparent;
+    margin-bottom: 30px;
+}
+.ExplorerPage .col-md-7 {
+    padding-right: 25px;
+}
+.card .Header {
+    background-color: #1e242c!important;
+    background: #1e242c!important;
+    color: #9ca7b4;
+    text-align: center;
+    padding: 20px 0;
+    text-transform: uppercase;
+    font-size: 17px;
+    background: red;
+}
+.Card .Body {
+    background: #2c343e;
+    margin-bottom: 30px;
+    border-bottom: 12px;
+    color: #87919d;
+}
+.ExplorerPage .tokenInfo h2 {
+    color: #ebcc86!important;}
+    .tokenInfo .Bell {
+    background: #20262f!important;
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+    font-size: 22px;
+    text-align: center;
+    color: #9ca7b4;
+    border-radius: 6px;
+    padding: 3px;
+}
+.ExplorerPage .tokenPrice h1 {
+    font-size: 23px;
+    margin-top: 12px;
+    color: #9ca7b4;
+    margin-bottom: 1px;
+}
+.ExplorerPage .tokenPrice h3 {
+    color: #87919d!important;}
+    .ExplorerPage .tokenPrice h3 .plus{color:#15dac7!important;}
+    .ExplorerPage .textWithSmallButton p {
+    color: #87919d!important;
+    width: 100%;
+    font-size: 11px;
+    font-weight: 600;
+}
+.ExplorerPage .textWithSmallButton .button {
+    color: #b2b9c1;
+    padding: 4px 15px;
+    border-radius: 100px;
+    float: right;
+    text-decoration: none;
+    background: #272f38;
+}.ExplorerPage .textWithSmallButton .button {
+    color: #b2b9c1;
+    padding: 4px 15px;
+    border-radius: 100px;
+    float: right;
+    text-decoration: none;
+    background: #272f38;
+}
+.SocialNav li a {
+    color: #87919d!important;}
+.SocialNav li a:hover {
+    color: #fff!important;}
 
 nav#sidebar h4 {
     background: #1e242c;
@@ -330,15 +438,16 @@ div#promoted li {
 .promo_tab .nav-tabs a {
     background: #232a32;
     color: #9ca7b4;
-    padding: 5px 15px;
+    padding: 5px 5px;
     border-radius: 100px;
     text-transform: uppercase;
     font-size: 10px;
-    font-weight: 500;
-    margin: 0 2px;
+    margin: 0 0px;
     font-weight: 600;
 }
-
+div#drawing-toolbar {
+    background-color: #131722!important;
+}
 .promo_tab .nav-tabs li .active {
     background: #15dac7;
     border-radius: 100px;
@@ -1397,3 +1506,18 @@ ul#combo-box-demo-popup {
     color: white;
     cursor:pointer;
 }
+.ExplorerPage .LastTransactions {box-shadow: none;
+    background: #2c343e;margin-top: 0px;
+}
+.LastTransactions th {
+    color: #9ca7b4!important;
+}
+    .ExplorerPage .LastTransactions tbody tr:hover {
+    background: #262e37;
+}
+.LastTransactions table tbody tr:hover td{background-color:transparent}
+.LastTransactions table tbody tr td {
+        color: #656d78!important;}
+.LastTransactions a {
+    color: #ebcc86;
+}    
