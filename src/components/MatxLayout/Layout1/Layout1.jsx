@@ -7,13 +7,13 @@ import Layout1Topbar from './Layout1Topbar'
 import Layout1Sidenav from './Layout1Sidenav'
 import Footer from '../../Footer/Footer'
 import SecondarySidebar from '../../SecondarySidebar/SecondarySidebar'
-import AppContext from 'app/contexts/AppContext'
-import { MatxSuspense } from 'app/components'
+import AppContext from '../../../contexts/AppContext'
+import MatxSuspense  from '../../MatxSuspense/MatxSuspense'
 import { useTheme } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import SidenavTheme from '../../MatxTheme/SidenavTheme/SidenavTheme'
 import { makeStyles } from '@material-ui/core/styles'
-import useSettings from 'app/hooks/useSettings'
+import useSettings from '../../../hooks/useSettings'
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     contentWrap: ({ width, secondarySidebar }) => {

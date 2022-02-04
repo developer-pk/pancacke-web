@@ -7,15 +7,16 @@ import {
     useMediaQuery,
     Hidden,
 } from '@material-ui/core'
-import { MatxMenu, MatxSearchBox } from 'app/components'
+import  MatxMenu from '../../MatxMenu/MatxMenu'
+import  MatxSearchBox from '../../MatxSearchBox/MatxSearchBox'
 import NotificationBar from '../../NotificationBar/NotificationBar'
 import { Link } from 'react-router-dom'
-import ShoppingCart from '../../ShoppingCart/ShoppingCart'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import clsx from 'clsx'
-import useAuth from 'app/hooks/useAuth'
-import useSettings from 'app/hooks/useSettings'
-import { NotificationProvider } from 'app/contexts/NotificationContext'
+import useAuth from '../../../hooks/useAuth'
+import useSettings from '../../../hooks/useSettings'
+import { NotificationProvider } from '../../../contexts/NotificationContext'
+import ShoppingCart from '../../ShoppingCart/ShoppingCart'
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     topbar: {

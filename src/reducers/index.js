@@ -30,6 +30,7 @@ import TrendReducer from './frontend/TrendReducer'
 import TcakeReducer from './frontend/TcakeReducer'
 import PromotedTokenReducer from './admin/promoted_token/PromotedTokenReducer'
 import InboundTokenReducer from './frontend/InboundTokenReducer'
+import EcommerceReducer from './EcommerceReducer'
 
 export default combineReducers({
   Wallet,
@@ -63,4 +64,5 @@ export default combineReducers({
   tcake:TcakeReducer,
   promotedtokens:PromotedTokenReducer,
   inbound:InboundTokenReducer,
+  ecommerce: EcommerceReducer,
 });

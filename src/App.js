@@ -18,12 +18,14 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { AuthProvider } from './contexts/JWTAuthContext';
 import JwtRegister from './pages/register/JwtRegister';
 import Otp from './pages/otp/Otp';
-import InventoryManagement from './pages/dashboard/InventoryManagement';
+import Dashboard from './pages/dashboard/Dashboard';
+import AddAds from './pages/admin/ads/AddAds';
+import AdsList from './pages/admin/ads/AdsList';
 // import MatxTheme from './components/MatxTheme/MatxTheme';
 // import MatxLayout from './components/MatxLayout/MatxLayout';
 // import MatxSuspense from './components/MatxSuspense/MatxSuspense';
-// export { default as GlobalCss } from './styles/GlobalCss';
-import { SettingsProvider } from './contexts/SettingsContext';
+// import { default as GlobalCss  } from './styles/GlobalCss';
+// import { SettingsProvider } from './contexts/SettingsContext';
 
 const client = new QueryClient();
 function App() {
@@ -39,8 +41,8 @@ function App() {
   return (
     <div className={`App ${theme}`}>
       <QueryClientProvider client={client}>
-      <SettingsProvider>
-      {/* <MatxTheme>
+       {/*<SettingsProvider>
+      <MatxTheme>
         <GlobalCss /> */}
       <AlertsComponent />
       <Router>
@@ -58,9 +60,9 @@ function App() {
             <Route path="/my-account">
               <MyAccount />
             </Route>
-            <Route path="/admin">
+            {/* <Route path="/admin">
               <AdminPage />
-            </Route>
+            </Route> */}
             <Route path="/signup">
               <JwtRegister />
             </Route>
@@ -68,7 +70,13 @@ function App() {
               <Otp />
             </Route>
             <Route path="/dashboard">
-              <InventoryManagement />
+              <Dashboard />
+            </Route>
+            <Route path="/admin/add-ads">
+              <AddAds />
+            </Route>
+            <Route path="/admin/ads">
+              <AdsList />
             </Route>
             <Redirect to="/pair-explorer/Tcake/0x3b831d36ed418e893f42d46ff308c326c239429f/v2" />
           </Switch>
@@ -76,8 +84,8 @@ function App() {
        
         </AuthProvider>
       </Router>
-      {/* </MatxTheme> */}
-      </SettingsProvider>
+      {/* </MatxTheme>
+      </SettingsProvider> */}
       </QueryClientProvider>
 
     </div>

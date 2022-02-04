@@ -1,11 +1,10 @@
 import React from 'react'
 import { useTheme, makeStyles } from '@material-ui/core/styles'
-
-import Sidenav from '../../Sidenav/Sidenav'
 import Brand from '../../Brand/Brand'
 import { Switch, Hidden } from '@material-ui/core'
 import { convertHexToRGB } from 'utils'
 import useSettings from '../../../hooks/useSettings'
+import Sidenav from '../../Sidenav/Sidenav'
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     sidenav: ({ width, primaryRGB, bgImgURL }) => ({
