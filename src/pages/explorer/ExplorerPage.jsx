@@ -28,6 +28,7 @@ import Footer from '../../pages/common/Footer';
 import { SERVICE_URL, DEFAULT_SERVICE_VERSION } from "../../constants/utility"
 import Ads  from '../../components/Ads/Ads';
 import Tabs  from '../../components/Tabs/Tabs';
+import useAuth from '../../hooks/useAuth'
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
     <i className="icon-search"></i>
@@ -41,6 +42,9 @@ export const ExplorerPage = ({ theme }) => {
   const params = useParams();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [favouriteBtnDisabled, setFavouriteBtnDisabled] = useState(false);
+  const [openRem,setConfirmRemoveState] = React.useState(false)
+  const [open,setConfirmState] = React.useState(false)
+  const [showLogin, setLoginShow] = useState(false);
   //const {ads} = useSelector(state=>state);
   const [tokenInfo, setTokenInfo] = useState({
     pair: 'BNB/TCAKE',
@@ -53,6 +57,22 @@ export const ExplorerPage = ({ theme }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { favourites, subscriptionEndTimestamp, loggedIn } = useSelector((store) => store.Profile);
+
+  const {
+    isAuthenticated,
+    // user
+} = useAuth()
+
+  let authenticated = isAuthenticated
+  const  handleClickOpen = () => {
+    setConfirmState(true);
+  };
+  const handleLoginShow = (param) => {
+    localStorage.setItem('icon-click', param)
+    setLoginShow(true);
+}
+const handleLoginClose = () => setLoginShow(false);
+  const {alertoken} = useSelector(state=>state);
 
   const isSubscription = loggedIn && subscriptionEndTimestamp * 1000 > Date.now();
 
@@ -236,6 +256,14 @@ export const ExplorerPage = ({ theme }) => {
     history.push('/pair-explorer/Tcake/0x3b831d36ed418e893f42d46ff308c326c239429f/v2');
   }
 
+      //Remove Fav
+      const  handleFavRemoveOpen = () => {
+        setConfirmRemoveState(true);
+      };
+      const  handleFavRemoveClose = () => {
+        setConfirmRemoveState(false);
+    };
+
   return (
     <div className="ExplorerPage">
       <HomeNavBar />
@@ -292,7 +320,26 @@ export const ExplorerPage = ({ theme }) => {
             />   */}
 
             <div className="tokenInfo">
-              <img
+            {/* {(authenticated ? 
+                (alertoken.length > 0 && alertoken[1].favorite == true ? 
+                    <a className="nav-link" href="#" onClick={() => handleFavRemoveOpen()}>
+                        <img className="heart-filled" src={process.env.PUBLIC_URL + "/images/heart.png"} />
+                    </a> :
+                    <a className="nav-link" href="#" onClick={() => handleClickOpen()}>
+                       <i className="lar la-heart"></i>
+                    </a>
+                )
+                :
+                (alertoken.length > 0 && alertoken[1].favorite == true? 
+                    <a className="nav-link" href="#" onClick={() => handleLoginShow('heart')}> 
+                        <img className="heart-filled" src={process.env.PUBLIC_URL + "/images/heart.png"} />
+                    </a> :
+                    <a className="nav-link" href="#" onClick={() => handleLoginShow('heart')}> 
+                        <i className="lar la-heart " />
+                    </a>
+                )
+            )} */}
+             <img
                 src={`https://exchange.pancakeswap.finance/images/coins/${tokenInfo.contractAddress}.png`}
                 onError={(e) => {
                   e.target.onError = null;

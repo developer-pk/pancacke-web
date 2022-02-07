@@ -1,17 +1,19 @@
 import React, { Fragment } from 'react'
+import useAuth from '../../hooks/useAuth'
 
 const TopNav = () => {
 
-
+  const { logout, user } = useAuth()
+console.log(user,'userconsole');
     return (
         <Fragment>
            <div className="iq-top-navbar">
         <div className="iq-navbar-custom">
           <nav className="navbar navbar-expand-lg navbar-light p-0">
             <div className="iq-navbar-logo d-flex justify-content-between">
-              <a href="index.html">
-                <img src="images/logo.png" className="img-fluid" alt="" />
-                <span>SocialV</span>
+              <a href="/">
+                <img src="/images/logo-new.png" className="img-fluid" alt="" />
+                <span>BSCZONE</span>
               </a>
               <div className="iq-menu-bt align-self-center">
                 <div className="wrapper-menu">
@@ -32,9 +34,9 @@ const TopNav = () => {
               <ul className="navbar-nav ml-auto navbar-list">
                 <li>
                   <a href="profile.html" className="iq-waves-effect d-flex align-items-center">
-                    <img src="images/user/1.jpg" className="img-fluid rounded-circle mr-3" alt="user" />
+                    <img src={user.avatar} className="img-fluid rounded-circle mr-3" alt="user" />
                     <div className="caption">
-                      <h6 className="mb-0 line-height">Bni Cyst</h6>
+                      <h6 className="mb-0 line-height">{user.firstname} {user.lastname}</h6>
                     </div>
                   </a>
                 </li>
@@ -269,7 +271,7 @@ const TopNav = () => {
                     <div className="iq-card shadow-none m-0">
                       <div className="iq-card-body p-0 ">
                         <div className="bg-primary p-3 line-height">
-                          <h5 className="mb-0 text-white line-height">Hello Bni Cyst</h5>
+                          <h5 className="mb-0 text-white line-height">Hello {user.firstname} {user.lastname}</h5>
                           <span className="text-white font-size-12">Available</span>
                         </div>
                         <a href="profile.html" className="iq-sub-card iq-bg-primary-hover">
@@ -279,11 +281,11 @@ const TopNav = () => {
                             </div>
                             <div className="media-body ml-3">
                               <h6 className="mb-0 ">My Profile</h6>
-                              <p className="mb-0 font-size-12">View personal profile details.</p>
+                              {/* <p className="mb-0 font-size-12">View personal profile details.</p> */}
                             </div>
                           </div>
                         </a>
-                        <a href="profile-edit.html" className="iq-sub-card iq-bg-warning-hover">
+                        {/* <a href="profile-edit.html" className="iq-sub-card iq-bg-warning-hover">
                           <div className="media align-items-center">
                             <div className="rounded iq-card-icon iq-bg-warning">
                               <i className="ri-profile-line" />
@@ -293,7 +295,7 @@ const TopNav = () => {
                               <p className="mb-0 font-size-12">Modify your personal details.</p>
                             </div>
                           </div>
-                        </a>
+                        </a> */}
                         <a href="account-setting.html" className="iq-sub-card iq-bg-info-hover">
                           <div className="media align-items-center">
                             <div className="rounded iq-card-icon iq-bg-info">
@@ -301,7 +303,7 @@ const TopNav = () => {
                             </div>
                             <div className="media-body ml-3">
                               <h6 className="mb-0 ">Account settings</h6>
-                              <p className="mb-0 font-size-12">Manage your account parameters.</p>
+                              {/* <p className="mb-0 font-size-12">Manage your account parameters.</p> */}
                             </div>
                           </div>
                         </a>
@@ -312,12 +314,12 @@ const TopNav = () => {
                             </div>
                             <div className="media-body ml-3">
                               <h6 className="mb-0 ">Privacy Settings</h6>
-                              <p className="mb-0 font-size-12">Control your privacy parameters.</p>
+                              {/* <p className="mb-0 font-size-12">Control your privacy parameters.</p> */}
                             </div>
                           </div>
                         </a>
                         <div className="d-inline-block w-100 text-center p-3">
-                          <a className="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i className="ri-login-box-line ml-2" /></a>
+                          <a className="bg-primary iq-sign-btn" href="#" onClick={logout} role="button">Logout<i className="ri-login-box-line ml-2" /></a>
                         </div>
                       </div>
                     </div>

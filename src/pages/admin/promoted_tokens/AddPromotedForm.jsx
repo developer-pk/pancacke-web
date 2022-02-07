@@ -28,7 +28,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
         margin: '1rem',
     },
 }))
-const AdsForm = ({ dispatch }) => {
+const AddPromotedForm = ({ dispatch }) => {
     const [selectedFile, setFile] = useState('')
     const [state, setState] = useState({
         date: new Date(),
@@ -38,30 +38,50 @@ const AdsForm = ({ dispatch }) => {
         ``
     )
     const classes = useStyles()
+    useEffect(() => {
+        ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
+            console.log(value)
+
+            if (value !== state.password) {
+                return false
+            }
+            return true
+        })
+        return () => ValidatorForm.removeValidationRule('isPasswordMatch')
+    }, [state.password])
+
     const handleSubmit = (event) => {
 
           //console.log(selectedFile[0].base64,'form data');
           // Create an object of formData
                 const formData = new FormData();
                 
-                // Update the formData object
                 formData.append(
-                    "title",
-                    state.title
+                    "contractAddress",
+                    state.contract_address
                 );
                 formData.append(
                     "status",
                     state.Status
                 );
                 formData.append(
-                    "ads",
+                    "image",
                     selectedFile,
                     selectedFile.name
                 );
-            const params = {title:state.title,ads:formData,status:state.Status};
-            dispatch(createAds(formData));
+                // formData.append(
+                //     "image",
+                //     selectedFile.name
+                // );
+                // Display the values
+for (var value of formData.values()) {
+    console.log(value);
+ }
+                console.log(formData.values(),'printdata');
+            const params = {contractAddress:state.contract_address,tokens:formData,status:state.Status};
+            dispatch(createPromotedToken(formData));
          //   toast.success("Ads added successfully.");
-            history.push('/ads/list')
+            history.push('/promoted-token/list')
 
       
     }
@@ -89,12 +109,10 @@ const AdsForm = ({ dispatch }) => {
       }
 
     const {
-        title,
-        ads,
+        contract_address,
+        image,
         Status,
-        file,
     } = state
-
 
   return (
 
@@ -105,35 +123,40 @@ const AdsForm = ({ dispatch }) => {
               <div className="iq-card">
         <div className="iq-card-header d-flex justify-content-between">
           <div className="iq-header-title">
-            <h4 className="card-title">Add Ads</h4>
+            <h4 className="card-title">Add Promoted Tokens</h4>
           </div>
         </div>
         <div className="iq-card-body">
         <ValidatorForm onSubmit={handleSubmit} onError={() => null}>
+            <ToastContainer position="top-right"
+                                autoClose={3000}
+                                hideProgressBar
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover />
                 <Grid container spacing={6}>
                     <Grid item lg={6} md={6} sm={12} xs={12}>
                         <TextValidator
                         variant="outlined"
                             className="mb-4 w-full"
-                            label="Ads Link"
+                            label="Contract Address"
                             onChange={handleChange}
                             type="text"
-                            name="title"
-                            value={title || ''}
+                            name="contract_address"
+                            value={contract_address || ''}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />
                         <div className="mb-3">
-                            <input type="file" name="file" onChange={onFileChange} />
+                            <input type="file" name="image" onChange={onFileChange} />
 
                             {/* <FileBase64
                             multiple={ true }
                             onDone={ getFiles.bind(this) } /> */}
                         </div>
-
-                       
-
-                        
                         <FormControl variant="outlined" className={classes.formControl+" mb-4 w-full"}>
                          <InputLabel id="demo-simple-select-outlined-label">Status</InputLabel>
                             <Select
@@ -154,7 +177,7 @@ const AdsForm = ({ dispatch }) => {
                     </Grid>
                 </Grid>
                 <Button color="primary" variant="contained" type="submit">
-                    
+                    <Icon>send</Icon>
                     <span className="pl-2 capitalize">Save</span>
                 </Button>
             </ValidatorForm>
@@ -168,4 +191,4 @@ const AdsForm = ({ dispatch }) => {
   );
 };
 
-export default connect()(AdsForm);
+export default connect()(AddPromotedForm);

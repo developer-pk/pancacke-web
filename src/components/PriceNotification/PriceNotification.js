@@ -160,6 +160,7 @@ const PriceNotification = ({ currentPrice, symbol }) => {
 
   return (
     <>
+    
       <Bell isActive={isActive} onClick={() => setModalVisibility(true)} />
       {isModalVisible && (
         <Modal toggleModal={() => setModalVisibility(false)}>

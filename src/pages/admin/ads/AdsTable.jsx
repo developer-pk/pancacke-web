@@ -5,17 +5,20 @@ const AdsTable = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
-      <div className="col-md-12">
-           <div className="iq-card">
+    <div id="content-page" className="content-page">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12">
+              <div className="iq-card">
         <div className="iq-card-header d-flex justify-content-between">
           <div className="iq-header-title">
-            <h4 className="card-title">Editable Table</h4>
+            <h4 className="card-title">Ads</h4>
           </div>
         </div>
         <div className="iq-card-body">
           <div id="table" className="table-editable">
             <span className="table-add float-right mb-3 mr-2">
-              <a href="/admin/add-ads" className="btn btn-sm iq-bg-success"><i className="ri-add-fill"><span className="pl-1">Add Ads</span></i>
+              <a href="/add-ads" className="btn btn-sm iq-bg-success"><i className="ri-add-fill"><span className="pl-1">Add Ads</span></i>
               </a>
             </span>
             <table className="table table-bordered table-responsive-md table-striped text-center">
@@ -92,6 +95,9 @@ const AdsTable = () => {
           </div>
         </div>
       </div>
+            </div>
+          </div>
+        </div> 
       </div>
    
   );
