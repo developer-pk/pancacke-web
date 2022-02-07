@@ -415,7 +415,7 @@ const handleLoginClose = () => setLoginShow(false);
 
             <hr />
 
-            <div className="textWithSmallButton">
+            <div className="textWithSmallButton pair-address">
               <p>V1 / V2</p>
               <Switch
                 onChange={toggleVersion}
