@@ -21,6 +21,9 @@ import Otp from './pages/otp/Otp';
 import Dashboard from './pages/dashboard/Dashboard';
 import AddAds from './pages/admin/ads/AddAds';
 import AdsList from './pages/admin/ads/AdsList';
+import AlertList from './pages/admin/alerts/AlertList';
+import PromotedTokenList from './pages/admin/promoted_tokens/PromotedTokenList';
+import ContactList from './pages/admin/contacts/ContactList';
 // import MatxTheme from './components/MatxTheme/MatxTheme';
 // import MatxLayout from './components/MatxLayout/MatxLayout';
 // import MatxSuspense from './components/MatxSuspense/MatxSuspense';
@@ -72,11 +75,20 @@ function App() {
             <Route path="/dashboard">
               <Dashboard />
             </Route>
-            <Route path="/admin/add-ads">
+            <Route path="/add-ads">
               <AddAds />
             </Route>
-            <Route path="/admin/ads">
+            <Route path="/ads">
               <AdsList />
+            </Route>
+            <Route path="/alerts">
+              <AlertList />
+            </Route>
+            <Route path="/promoted-tokens">
+              <PromotedTokenList />
+            </Route>
+            <Route path="/contacts">
+              <ContactList />
             </Route>
             <Redirect to="/pair-explorer/Tcake/0x3b831d36ed418e893f42d46ff308c326c239429f/v2" />
           </Switch>
