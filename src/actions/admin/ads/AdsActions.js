@@ -41,6 +41,7 @@ export const getAds = () => (dispatch) => {
         })
         .catch((error) => {
             if (error) {
+                if (error.response) {
                 if (
                     error.response.data.code == 401 &&
                     error.response.data.message == 'jwt expired'
@@ -49,6 +50,7 @@ export const getAds = () => (dispatch) => {
                 } else {
                     toast.error(error.response.data.errors[0].messages[0])
                 }
+            }
             }
         })
 }

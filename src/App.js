@@ -14,7 +14,7 @@ import ThemeContext from './contexts/ThemeContext';
 import { useDispatch } from 'react-redux';
 import { SubscriptionsActions } from './actions/subscriptionsAction';
 import { AdvertsActions } from './actions/advertsActions';
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { AuthProvider } from './contexts/JWTAuthContext';
 import JwtRegister from './pages/register/JwtRegister';
 import Otp from './pages/otp/Otp';
@@ -24,18 +24,26 @@ import AdsList from './pages/admin/ads/AdsList';
 import AlertList from './pages/admin/alerts/AlertList';
 import PromotedTokenList from './pages/admin/promoted_tokens/PromotedTokenList';
 import ContactList from './pages/admin/contacts/ContactList';
+import useAuth from './hooks/useAuth';
 // import MatxTheme from './components/MatxTheme/MatxTheme';
 // import MatxLayout from './components/MatxLayout/MatxLayout';
 // import MatxSuspense from './components/MatxSuspense/MatxSuspense';
 // import { default as GlobalCss  } from './styles/GlobalCss';
 // import { SettingsProvider } from './contexts/SettingsContext';
+import AuthGuard from './auth/AuthGuard'
 
 const client = new QueryClient();
 function App() {
   const { theme, toggle } = useContext(ThemeContext);
 
   const dispatch = useDispatch();
+  const {
+    isAuthenticated,
+    // user
+  } = useAuth();
 
+  let authenticated = isAuthenticated;
+  console.log(authenticated,'yes ther');
   useEffect(() => {
     dispatch(SubscriptionsActions.getSubscriptionData());
     dispatch(AdvertsActions.fetchAdverts());
@@ -44,62 +52,73 @@ function App() {
   return (
     <div className={`App ${theme}`}>
       <QueryClientProvider client={client}>
-       {/*<SettingsProvider>
+        {/*<SettingsProvider>
       <MatxTheme>
         <GlobalCss /> */}
-      <AlertsComponent />
-      <Router>
-      <AuthProvider>
-     
-        {/* <Navbar theme={theme} toggleTheme={toggle} /> */}
-        <Container>
-          <Switch>
-            <Route path="/pair-explorer/:pair/:contract/:version?">
-              <ExplorerPage theme={theme} />
-            </Route>
-            <Route path="/pool-explorer">
-              <PoolExplorerPage theme={theme} />
-            </Route>
-            <Route path="/my-account">
-              <MyAccount />
-            </Route>
-            {/* <Route path="/admin">
+        <AlertsComponent />
+        <Router>
+          <AuthProvider>
+            {/* <Navbar theme={theme} toggleTheme={toggle} /> */}
+            <Container>
+             
+              
+         
+                {/* <Route path="/admin">
               <AdminPage />
             </Route> */}
-            <Route path="/signup">
-              <JwtRegister />
-            </Route>
-            <Route path="/otp-verify">
-              <Otp />
-            </Route>
-            <Route path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route path="/add-ads">
-              <AddAds />
-            </Route>
-            <Route path="/ads">
-              <AdsList />
-            </Route>
-            <Route path="/alerts">
-              <AlertList />
-            </Route>
-            <Route path="/promoted-tokens">
-              <PromotedTokenList />
-            </Route>
-            <Route path="/contacts">
-              <ContactList />
-            </Route>
-            <Redirect to="/pair-explorer/Tcake/0x3b831d36ed418e893f42d46ff308c326c239429f/v2" />
-          </Switch>
-        </Container>
-       
-        </AuthProvider>
-      </Router>
-      {/* </MatxTheme>
+             <Switch>  
+                <Route path="/signup">
+                  <JwtRegister />
+                </Route>
+                <Route path="/otp-verify">
+                  <Otp />
+                </Route>
+                
+                 
+                 <Route path="/dashboard">
+                  <Dashboard />
+                </Route>
+                <Route path="/add-ads">
+                  <AddAds />
+                </Route>
+                <Route path="/ads">
+                  <AdsList />
+                </Route>
+                <Route path="/alerts">
+                  <AlertList />
+                </Route>
+                <Route path="/promoted-tokens">
+                  <PromotedTokenList />
+                </Route>
+                <Route path="/contacts">
+                  <ContactList />
+                </Route>  
+                <Route path="/pair-explorer/:pair/:contract/:version?">
+                <ExplorerPage theme={theme} />
+              </Route>
+              <Route path="/pool-explorer">
+                <PoolExplorerPage theme={theme} />
+              </Route>
+              <Route path="/my-account">
+                <MyAccount />
+              </Route>
+              <Redirect to="/pair-explorer/Tcake/0x3b831d36ed418e893f42d46ff308c326c239429f/v2" />
+              </Switch>
+
+                
+                 
+     
+               
+              
+              
+
+
+            </Container>
+          </AuthProvider>
+        </Router>
+        {/* </MatxTheme>
       </SettingsProvider> */}
       </QueryClientProvider>
-
     </div>
   );
 }
