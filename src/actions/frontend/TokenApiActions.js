@@ -160,7 +160,7 @@ export const addTokenInFavourite = (tokenInfo) => (dispatch) => {
                 payload: res.data,
             })
         })
-        .catch((error) => {
+        .catch((error) => {console.log(error.response,'fav');
             if(error){
                 if (
                     error.response.data.code == 401 &&
@@ -169,6 +169,8 @@ export const addTokenInFavourite = (tokenInfo) => (dispatch) => {
                 ) {
                     generateRefreshToken()
                 } else if (error.response.status == 400) {
+                    toast.error(error.response.data.message)
+                }else if (error.response.status == 403) {
                     toast.error(error.response.data.message)
                 } else {
                     toast.error(error.response.data.errors[0].messages[0])
@@ -204,7 +206,9 @@ export const removeTokenFromFavourite = (tokenInfo) => (dispatch) => {
                     generateRefreshToken()
                 } else if (error.response.status == 400) {
                     toast.error(error.response.data.message)
-                } else {
+                }else if (error.response.status == 403) {
+                    toast.error(error.response.data.message)
+                }  else {
                     toast.error(error.response.data.errors[0].messages[0])
                 }
             }

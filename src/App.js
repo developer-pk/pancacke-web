@@ -32,6 +32,9 @@ import useAuth from './hooks/useAuth';
 // import { SettingsProvider } from './contexts/SettingsContext';
 import AuthGuard from './auth/AuthGuard'
 
+import { ToastContainer } from 'material-react-toastify';
+import 'material-react-toastify/dist/ReactToastify.css';
+
 const client = new QueryClient();
 function App() {
   const { theme, toggle } = useContext(ThemeContext);
@@ -56,6 +59,15 @@ function App() {
       <MatxTheme>
         <GlobalCss /> */}
         <AlertsComponent />
+        <ToastContainer position="top-right"
+                                autoClose={3000}
+                                hideProgressBar
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover />
         <Router>
           <AuthProvider>
             {/* <Navbar theme={theme} toggleTheme={toggle} /> */}

@@ -29,6 +29,8 @@ import { SERVICE_URL, DEFAULT_SERVICE_VERSION } from "../../constants/utility"
 import Ads  from '../../components/Ads/Ads';
 import Tabs  from '../../components/Tabs/Tabs';
 import useAuth from '../../hooks/useAuth'
+import AddToFav from '../../components/AddToFav/AddToFav';
+
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
     <i className="icon-search"></i>
@@ -268,7 +270,7 @@ const handleLoginClose = () => setLoginShow(false);
     <div className="ExplorerPage">
       <HomeNavBar />
       <WalletBar />
-
+    
       {/* {!isSubscription ? (
         <div className="Row">
           <BannerPlace position="TOP" />
@@ -355,7 +357,17 @@ const handleLoginClose = () => setLoginShow(false);
                 alt={tokenInfo.symbol}
               />
               <h2>{tokenInfo.symbol}</h2>
+             
+            </div>
+            <div className="Row">
+              <div className="col-md-6">
+                <AddToFav />
+              </div>
+              <div className="col-md-6">
               <PriceNotification currentPrice={tokenPrice.price} symbol={tokenInfo.symbol} />
+              </div>
+           
+             
             </div>
 
             <div className="favouritePair">
