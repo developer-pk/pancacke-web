@@ -265,22 +265,38 @@ console.log(isModalVisible,'is modal');
           href="#"
           onClick={() => handleAlertRemoveOpen()}
       >  
-      <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} />
+      {/* <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} /> */}
+      <button
+      className='Bell isActive'>
+      <i className="icon-bell"></i>
+    </button>
       </a> :
       <a
       className="nav-link"
       href="#"
       onClick={handleShow}
-  >  <i className="las la-bell " />
+  >
+        <button
+      className='Bell'>
+      <i className="icon-bell"></i>
+    </button>
+      
   </a>
       )
       :
       (alertoken.length > 0 && alertoken[1].alert == true ? 
           <a className="nav-link" href="#" onClick={() => handleLoginShow('alert')}> 
-              <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} />
+              {/* <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} /> */}
+              <button
+      className='Bell isActive'>
+      <i className="icon-bell"></i>
+    </button>
           </a> :
           <a className="nav-link" href="#" onClick={() => handleLoginShow('alert')}> 
-              <i className="las la-bell" />
+             <button
+      className='Bell'>
+      <i className="icon-bell"></i>
+    </button>
           </a>
       )
       
@@ -403,15 +419,16 @@ console.log(isModalVisible,'is modal');
                             <h5>{(tokeninfo.data.address ? tokeninfo.data.address : '')}</h5>
                             <form className="alarm-modal__form" onSubmit={(e) => e.preventDefault()}>
             <div className="alarm-modal__input-container">
-              <label className="alarm-modal__input-label" htmlFor="high-price">
+              {/* <label className="alarm-modal__input-label" htmlFor="high-price">
                 High Price:
-              </label>
+              </label> */}
               <div className="alarm-modal__flex">
                 <input
                   className="alarm-modal__input"
                   id="high-price"
                   value={highPrice}
                   onChange={handleHighPriceChange}
+                  placeholder="High price..."
                 />
                 <button className="alarm-modal__btn" onClick={clearHighPrice}>
                   Clear
@@ -419,15 +436,16 @@ console.log(isModalVisible,'is modal');
               </div>
             </div>
             <div className="alarm-modal__input-container">
-              <label className="alarm-modal__input-label" htmlFor="low-price">
+              {/* <label className="alarm-modal__input-label" htmlFor="low-price">
                 Low Price:
-              </label>
+              </label> */}
               <div className="alarm-modal__flex">
                 <input
                   className="alarm-modal__input"
                   id="low-price"
                   value={lowPrice}
                   onChange={handleLowPriceChange}
+                  placeholder="Low price..."
                 />
                 <button className="alarm-modal__btn" onClick={clearLowPrice}>
                   Clear

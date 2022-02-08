@@ -1,4 +1,4 @@
-.Bell {
+.Favorite {
   background-color: #fff;
   border: none;
   outline: none;
@@ -8,7 +8,6 @@
   height: 32px;
   position: relative;
   color: #243264;
-  margin-left: auto;
   cursor: pointer;
   i {
     position: absolute;
@@ -18,7 +17,7 @@
     transition: opacity 0.15s linear, color 0.15s linear;
   }
 
-  .icon-bell-alt {
+  .icon-heart {
     opacity: 0;
   }
 
@@ -28,9 +27,14 @@
       color: #e99837;
     }
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: initial;
+  }
 }
 
-.Bell.isActive {
+.Favorite.isFavourite {
   background-color: #e99837;
 
   &:hover {
