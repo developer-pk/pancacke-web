@@ -305,7 +305,7 @@ const handleAgree = () => {
                                 <Button
                                     className="capitalize"
                                     onClick={() =>
-                                        history.push('/session/signup')
+                                        history.push('/signup')
                                     }
                                 >
                                     Sign up

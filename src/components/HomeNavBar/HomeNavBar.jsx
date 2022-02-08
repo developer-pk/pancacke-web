@@ -495,7 +495,7 @@ const handleChange = ({ target: { name, value } }) => {
                                 <Button
                                     className="capitalize"
                                     onClick={() =>
-                                        history.push('/session/signup')
+                                        history.push('/signup')
                                     }
                                 >
                                     Sign up

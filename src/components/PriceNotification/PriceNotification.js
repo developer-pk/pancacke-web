@@ -388,7 +388,7 @@ console.log(isModalVisible,'is modal');
                                 <Button
                                     className="capitalize"
                                     onClick={() =>
-                                        history.push('/session/signup')
+                                        history.push('/signup')
                                     }
                                 >
                                     Sign up
