@@ -17,7 +17,7 @@ import { useSelector } from 'react-redux'
 import { connect } from 'react-redux';
 import {verifyOtp, resendOtp} from '../../actions/frontend/OtpActions'
 import { ToastContainer, toast } from 'material-react-toastify';
-import '../Home.css';
+import './otp.scss';
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     cardHolder: {

@@ -14,6 +14,7 @@ import useAuth from '../../hooks/useAuth'
 import history from '../../history.js'
 import Header from '../common/Header'
 import Footer from '../common/Footer'
+import './register.scss';
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     cardHolder: {
