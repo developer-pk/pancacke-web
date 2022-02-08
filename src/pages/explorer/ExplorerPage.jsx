@@ -268,7 +268,7 @@ const handleLoginClose = () => setLoginShow(false);
 
   return (
     <div className="ExplorerPage">
-      <HomeNavBar />
+      <HomeNavBar currentPrice={tokenPrice.price} symbol={tokenInfo.symbol} />
       <WalletBar />
     
       {/* {!isSubscription ? (
