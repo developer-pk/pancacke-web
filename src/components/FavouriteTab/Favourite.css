@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 .App{background-color:transparent;}
-
+.alarm-modal__flex {
+    display: flex;
+    justify-content: space-between;
+}
 body {
     background: #232a32!important;
     /* padding: 0px 30px;   */
@@ -134,10 +137,13 @@ body.chart-page.unselectable.on-widget {
     padding: 3px;
 }
 .ExplorerPage .tokenPrice h1 {
-    font-size: 23px;
+    font-size: 18px;
     margin-top: 12px;
     color: #9ca7b4;
     margin-bottom: 1px;
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    width: 100%;
 }
 .ExplorerPage .tokenPrice h3 {
     color: #87919d!important;}
@@ -632,7 +638,7 @@ button.accept {
 }
 .modal-popup-class form button:hover {
     opacity: 1;
-    background: #ef5350;
+    background: transparent;
 }
 .modal-popup-class form button {
     text-transform: uppercase;
@@ -1164,6 +1170,35 @@ span.buy-type {
 .modal-popup-class .flex.flex-wrap.items-center.mb-4 {
     text-align: center;
     justify-content: center;
+    width: 100%;
+    display: flex;align-items: center;
+}
+.relative button.primary-button {
+    background: #15dac7!important;
+    font-size: 18px;
+    border-radius: 100px;
+    opacity: .8;
+    padding: 0 25px;
+}
+.modal-popup-class form button {
+    text-transform: uppercase;
+    opacity: 0.9;
+    cursor: pointer;
+    height: 37px;
+    letter-spacing: 5px;
+    background: transparent;
+    color: #fff;
+}
+
+.ExplorerPage .textWithSmallButton .button:hover {
+    background-color: #15dac7!important;
+}
+button.primary-button.text-primary {
+    color: #fff!important;
+    font-size: 14px!important;
+}
+span.mr-2.ml-5 {
+    margin: 0 15px;
 }
 
 .modal-popup-class button.MuiButtonBase-root.MuiButton-root.MuiButton-text.text-primary span {
@@ -1201,8 +1236,54 @@ span.buy-type {
 .mobile_area {
     display: none;
 }
+#modal .modal-body {
+    background: #131722;
+    border: 1px solid #15dac7;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgb(0 0 0);
+    width: 506px;
+    height: 416px;
+    padding: 50px;
+    max-width: 506px;
+}
+.alarm-modal__input {
+    width: 48%;
+    height: 20px;
+    border-radius: 100px!important;
+}
 
-
+h3.alarm-modal__heading {
+    text-align: center;
+    color: #fff;
+}
+.alarm-modal__input-label {
+    color: #fff;
+}
+.Switch input:checked ~ .overlay {
+    background-color: #272f38!important;
+}
+.Bell:hover i{color: #9ca7b4!important;}
+button.alarm-modal__btn {
+    width: 48%;
+    padding: 6px 12px;
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 100px;
+    font-weight: 400;
+    font-size: 12px;
+    background: #ef5350;
+    color: #fff;
+    font-weight: 600;
+}
+i.icon-bell-alt {
+    display: none;
+}
+.alarm-modal__footer-btn-container button.alarm-modal__btn:last-child {
+    background: #15dac7;
+}
+.alarm-modal__footer-btn-container {
+    justify-content: space-between;
+}
 @media only screen and (max-width: 1500px){
  .trade_sub .dropdown-menu.show a{
     padding: 1px 4px;
@@ -1367,6 +1448,10 @@ div#myContent {
     display: flex;
     justify-content: space-between;
 }
+.alarm-modal__flex {
+    display: flex;
+    justify-content: space-between;
+}
 .copy_text.token_infoo .copy {
     margin: 0px 0;
     display: inline-block;padding: 10px;
@@ -1521,3 +1606,24 @@ ul#combo-box-demo-popup {
 .LastTransactions a {
     color: #ebcc86;
 }    
+.favouritePair h3,.textWithSmallButton.pair-address {
+    display: none;
+  }
+  
+  .type.danger {
+    color: red !important;
+  }
+  element {
+
+}
+.LastTransactions table tbody tr td:nth-child(2) {
+
+    text-align: left;
+    padding-left: 0;
+
+}
+.type.success {
+
+    color: #15dac7 !important;
+
+}
