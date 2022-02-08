@@ -641,7 +641,7 @@ button.accept {
 }
 .modal-popup-class form button:hover {
     opacity: 1;
-    background: transparent;
+    background: #ef5350;
 }
 .modal-popup-class form button {
     text-transform: uppercase;
@@ -1189,7 +1189,7 @@ span.buy-type {
     cursor: pointer;
     height: 37px;
     letter-spacing: 5px;
-    background: transparent;
+    background: #ef5350;
     color: #fff;
 }
 
@@ -1629,4 +1629,8 @@ ul#combo-box-demo-popup {
 
     color: #15dac7 !important;
 
+}
+input::-webkit-input-placeholder {
+    font-size: 11px;
+   
 }
