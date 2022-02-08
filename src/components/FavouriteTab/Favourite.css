@@ -4,6 +4,9 @@
     display: flex;
     justify-content: space-between;
 }
+* {
+    font-family: "Montserrat";
+}
 body {
     background: #232a32!important;
     /* padding: 0px 30px;   */
