@@ -28,7 +28,8 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import { Modal, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import axios from 'axios'
+import {createAlert} from '../../actions/common/AlertActions'
 
 const HighAlarm = new Audio(highAlarm);
 const LowAlarm = new Audio(lowAlarm);
@@ -161,7 +162,7 @@ const PriceNotification = ({ currentPrice, symbol }) => {
     setTyping(true);
     setHighPriceNotificationSent(false);
     setLowPriceNotificationSent(false);
-
+    getData();
     const id = setTimeout(() => setTyping(false), 2000);
 
     return () => {
@@ -248,6 +249,25 @@ const  handleAlertRemoveOpen = () => {
 const  handleAlertRemoveClose = () => {
   setRemoveAlertState(false);
 };
+const [ip, setIP] = useState('');
+    //creating function to load ip address from the API
+    const getData = async () => {
+      const res = await axios.get('https://geolocation-db.com/json/')
+     // console.log(res.data);
+      setIP(res.data.IPv4)
+  }
+const handleAlarmClose = () => {
+
+  const symbol =  (tokeninfo.data.symbol ? tokeninfo.data.symbol : 'Tcake');
+  const tokenAddress =  (tokeninfo.data.address ? tokeninfo.data.address : '0x3b831d36ed418e893f42d46ff308c326c239429f');
+  const params = {highPrice:highPrice,lowPrice:lowPrice,status:'active',currencySymbol:symbol,ip:ip,currencytoken:tokenAddress};
+  dispatch(createAlert(params));
+  dispatch(getAlertTokenInfo(tokenAddress));
+  
+  setState({highPrice:'',lowPrice:''});
+  setShow(false);
+
+}
   const isActive = (highPrice && Number(highPrice) > 0) || (lowPrice && Number(lowPrice) > 0);
 console.log(isModalVisible,'is modal');
   return (
@@ -467,7 +487,7 @@ console.log(isModalVisible,'is modal');
               <button className="alarm-modal__btn" onClick={clearBoth}>
                 Clear All
               </button>
-              <button className="alarm-modal__btn" onClick={handleClose}>
+              <button className="alarm-modal__btn" onClick={handleAlarmClose}>
                 Close
               </button>
             </div>

@@ -20,13 +20,16 @@ import {
 import { Modal, Form } from "react-bootstrap";
 import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator'
 import {getAds, deleteAds} from '../../actions/admin/ads/AdsActions'
-import { useSelector } from 'react-redux'
+import { useDispatch , useSelector } from 'react-redux'
 import BigNumber from 'bignumber.js';
 import highAlarm from '../../assets/high.ogg';
 import lowAlarm from '../../assets/low.ogg';
 import icon from '../../assets/logo.png';
 import regex from '../../helpers/regexp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import axios from 'axios'
+import {createAlert} from '../../actions/common/AlertActions'
+import { getAlertTokenInfo } from '../../actions/frontend/TokenApiActions'
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   cardHolder: {
@@ -58,6 +61,8 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
   const handleOnChangeToken = (selected) => {
     history.push(`/pair-explorer/${selected.value}/v2`);
   };
+
+  const dispatch = useDispatch();
   const { tokeninfo } = useSelector(state=>state);
   const [highPrice, setHighPrice] = useState(
     localStorage.getItem(`HIGH_PRICE_ALARM_${symbol}`) ?? '',
@@ -157,7 +162,7 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
     setTyping(true);
     setHighPriceNotificationSent(false);
     setLowPriceNotificationSent(false);
-
+    getData();
     const id = setTimeout(() => setTyping(false), 2000);
 
     return () => {
@@ -267,6 +272,26 @@ const handleChange = ({ target: { name, value } }) => {
   let temp = { ...userInfo }
   temp[name] = value
   setUserInfo(temp);
+}
+
+const [ip, setIP] = useState('');
+    //creating function to load ip address from the API
+    const getData = async () => {
+      const res = await axios.get('https://geolocation-db.com/json/')
+     // console.log(res.data);
+      setIP(res.data.IPv4)
+  }
+const handleAlarmClose = () => {
+
+  const symbol =  (tokeninfo.data.symbol ? tokeninfo.data.symbol : 'Tcake');
+  const tokenAddress =  (tokeninfo.data.address ? tokeninfo.data.address : '0x3b831d36ed418e893f42d46ff308c326c239429f');
+  const params = {highPrice:highPrice,lowPrice:lowPrice,status:'active',currencySymbol:symbol,ip:ip,currencytoken:tokenAddress};
+  dispatch(createAlert(params));
+  dispatch(getAlertTokenInfo(tokenAddress));
+  
+  setState({highPrice:'',lowPrice:''});
+  setShow(false);
+
 }
   /**end */
 
@@ -567,7 +592,7 @@ const handleChange = ({ target: { name, value } }) => {
               <button className="alarm-modal__btn" onClick={clearBoth}>
                 Clear All
               </button>
-              <button className="alarm-modal__btn" onClick={handleClose}>
+              <button className="alarm-modal__btn" onClick={handleAlarmClose}>
                 Close
               </button>
             </div>
