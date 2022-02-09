@@ -7,6 +7,7 @@
 * {
     font-family: "Montserrat";
 }
+
 body {
     background: #232a32!important;
     /* padding: 0px 30px;   */
@@ -384,12 +385,14 @@ table.table tbody tr:hover {
 .sidebar .nav:not(.sub-menu) > .nav-item:hover[aria-expanded='true'] {
     background: transparent;
 }
-
+.makeStyles-card-2{margin: 0 auto}
 span.pro_title {
     color: #fff;
-    padding: 0 10px;
+    padding: 0 5px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 400;
 }
-
 div#promoted {
     color: #979797;
     margin-top: 8px;
@@ -398,7 +401,8 @@ div#promoted {
 
 .pro_price {
     color: #15dac7;
-    padding-left: 10px;
+    padding-left: 5px;
+    font-size: 11px;
 }
 
 .promo_tab ul {
@@ -408,6 +412,16 @@ div#promoted {
 
 div#promoted li {
     border-bottom: 1px solid rgb(255 255 255 / 8%);
+}
+.MuiGrid-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    background: #1A2038;
+    justify-content: center;
+}.MuiPaper-root.MuiCard-root.makeStyles-card-2.MuiPaper-elevation1.MuiPaper-rounded {
+    box-shadow: none; margin: 0 auto;
 }
 .modal-popup-class i.fas.fa-times.pull-right {
     position: absolute;
@@ -447,13 +461,16 @@ div#promoted li {
 .promo_tab .nav-tabs a {
     background: #232a32;
     color: #9ca7b4;
-    padding: 5px 5px;
+    padding: 5px 4px;
     border-radius: 100px;
     text-transform: uppercase;
     font-size: 10px;
     margin: 0 0px;
     font-weight: 600;
 }
+
+
+
 div#drawing-toolbar {
     background-color: #131722!important;
 }
@@ -646,11 +663,28 @@ button.accept {
 .modal-popup-class form button {
     text-transform: uppercase;
     opacity: 0.9;
-    cursor: pointer;height: 37px;
+    cursor: pointer;
+    height: 37px;
     letter-spacing: 5px;
+    background: #ef5350;
+    color: #fff;
+    padding: 10px;
+    line-height: 16px;border-radius: 100px;
 }.modal-popup-class form li:last-child button:last-child {
     background: #15dac7;
     color: #131722;
+}
+.modal-popup-class form button.primary-button {
+    background: transparent;
+}
+.modal-popup-class form button.primary-button.capitalize:hover {
+    background: #ef5350;
+}
+form span.mr-2.ml-5 {
+    margin: 0 17px!important;
+}
+.LastTransactions .type.danger {
+    color: #f35451!important;
 }
 .modal-popup-class form li:last-child button {
     height: auto;
@@ -1106,15 +1140,30 @@ span.buy-type {
 }
 .login_form {
     background: #2c343e;
-    padding: 15px;    text-align: center;
+    padding: 30px 70px;
+    text-align: center;
     color: #9ca7b4;
+    margin: 66px auto;
+    border-radius: 16px;
 }
 
 .login_form .MuiInputBase-input {
-    background: #7e8087;
+    background: transparent;
     border-radius: 100px;
     color: #fff;
     margin-bottom: 10px;
+}
+.login_form label span {
+    color: #9ca7b4;
+}
+.footer a:hover {
+    color: #15dac7;}
+.footer a {
+    color: #9ca7b4;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
 }
 .login_form button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary {
     background: #15dac7;
@@ -1140,7 +1189,7 @@ span.buy-type {
     color: #FF3D57;
     margin-top: -9px;
 }
-.login_form h4 {
+.login_form h4 {color: #fff;
     padding-bottom: 20px;
 }
 .footer {
@@ -1161,6 +1210,13 @@ span.buy-type {
     outline: none;
     color: #fff;
     font-size: 18px;
+}
+.login_form {
+    background: #2c343e;
+    padding: 30px 70px;
+    text-align: center;
+    color: #9ca7b4;
+    margin: 66px auto;
 }
 .modal-popup-class button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary {
     background: #15dac7;
@@ -1574,9 +1630,9 @@ ul#combo-box-demo-popup {
     margin-left: -29px;
     color: white;
 }
-.trend-img{
-    height: 30px;
-    width: 30px;
+.trend-img {
+    height: 20px;
+    width: 20px;
 }
 .pricing-table .eBauma {
     color: #87919d;
