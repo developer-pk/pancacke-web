@@ -507,7 +507,7 @@ const handleChange = ({ target: { name, value } }) => {
                             <Button
                                 className="text-primary"
                                 onClick={() =>
-                                    history.push('/session/forgot-password')
+                                    history.push('/forgot-password')
                                 }
                             >
                                 Forgot password?

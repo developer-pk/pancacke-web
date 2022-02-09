@@ -34,7 +34,8 @@ import AuthGuard from './auth/AuthGuard'
 
 import { ToastContainer } from 'material-react-toastify';
 import 'material-react-toastify/dist/ReactToastify.css';
-
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import Login from './pages/Login/Login';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faHeart, faBell, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -89,6 +90,12 @@ function App() {
                 </Route>
                 <Route path="/otp-verify">
                   <Otp />
+                </Route>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/forgot-password">
+                  <ForgotPassword />
                 </Route>
                 
                  

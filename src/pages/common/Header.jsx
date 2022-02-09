@@ -56,7 +56,7 @@ const Header = ({ dispatch }) => {
  
          :
          <li className="nav-item">
-          <a className="nav-link" href="/session/signin">Login</a>
+          <a className="nav-link" href="/login">Login</a>
           </li>
 
       )}

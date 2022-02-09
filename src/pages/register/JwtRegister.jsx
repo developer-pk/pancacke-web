@@ -151,7 +151,7 @@ const JwtRegister = () => {
                                         Sign up
                                     </Button>
                                     <span className="mx-2 ml-5">or</span>
-                                    <Link to="/session/signin">
+                                    <Link to="/login">
                                         <Button className="capitalize">
                                             Sign in
                                         </Button>

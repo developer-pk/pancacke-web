@@ -306,7 +306,7 @@ const AddToFav = () => {
               </div>
               <Button
                 className="text-primary"
-                onClick={() => history.push('/session/forgot-password')}
+                onClick={() => history.push('/forgot-password')}
               >
                 Forgot password?
               </Button>
