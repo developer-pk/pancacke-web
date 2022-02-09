@@ -470,7 +470,36 @@ div#promoted li {
 }
 
 
+.Paginator ul li button {
+    color: #656d78;
+}
+.Paginator {
+    position: absolute;
+    right: 38px;
+    background: #232a32;
+    border-radius: 100px;
+    bottom: -8px;
+    padding: 5px 15px;
+}
+.Paginator ul li.icons button i {
+    width: 10px;
+    display: flex;
+}
 
+.Paginator ul li.active button, .Paginator ul li:hover button{color: #fff}
+.Paginator ul li button {
+    padding: 0;
+    margin: 0 3px;
+    width: auto!important;
+    line-height: normal;
+    font-size: 14px;
+    font-weight: 600;
+}
+.LastTransactions .help-text {
+    opacity:1;
+    color: #9ca7b4;
+    font-weight: 500;
+}
 div#drawing-toolbar {
     background-color: #131722!important;
 }
@@ -1652,6 +1681,7 @@ ul#combo-box-demo-popup {
 }
 .ExplorerPage .LastTransactions {box-shadow: none;
     background: #2c343e;margin-top: 0px;
+    padding-bottom: 15px;
 }
 .LastTransactions th {
     color: #9ca7b4!important;
