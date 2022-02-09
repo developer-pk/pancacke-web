@@ -288,13 +288,13 @@ console.log(isModalVisible,'is modal');
           href="#"
           onClick={() => handleAlertRemoveOpen()}
       >  
-      {/* <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} /> */}
+       <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} /> 
       {/* <button
       className='Bell isActive'>
       <i className="icon-bell"></i>
     </button> */}
 
-<FontAwesomeIcon icon={['fas', 'bell']} />
+{/* <FontAwesomeIcon icon={['fas', 'bell']} /> */}
       </a> :
       <a
       className="nav-link"
@@ -313,12 +313,12 @@ console.log(isModalVisible,'is modal');
       :
       (alertoken.length > 0 && alertoken[1].alert == true ? 
           <a className="nav-link" href="#" onClick={() => handleLoginShow('alert')}> 
-              {/* <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} /> */}
+               <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} /> 
               {/* <button
       className='Bell isActive'>
       <i className="icon-bell"></i>
     </button> */}
-    <FontAwesomeIcon icon={['fas', 'bell']} />
+    {/* <FontAwesomeIcon icon={['fas', 'bell']} /> */}
           </a> :
           <a className="nav-link" href="#" onClick={() => handleLoginShow('alert')}> 
              {/* <button
