@@ -93,6 +93,7 @@ input#search {
     border-radius: 12px;
     color: #87919d;
     max-width: 225px;
+    margin-left: -7px;
 }
 div#tv_chart_container {
     background: #131722;
@@ -152,11 +153,20 @@ body.chart-page.unselectable.on-widget {
     color: #87919d!important;}
     .ExplorerPage .tokenPrice h3 .plus{color:#15dac7!important;}
     .ExplorerPage .textWithSmallButton p {
-    color: #87919d!important;
-    width: 100%;
-    font-size: 11px;
-    font-weight: 600;
-}
+        color: #87919d!important;
+        width: 100%;
+        font-size: 11px;
+        font-weight: 600;
+        margin: 0;
+    }
+    p.tag_btn {
+        position: relative;
+    }   
+    a#dropdownMenuButton1 {
+        position: absolute;
+        right: 0;
+        top: -23px;
+    }
 .ExplorerPage .textWithSmallButton .button {
     color: #b2b9c1;
     padding: 4px 15px;
@@ -867,7 +877,7 @@ i.fas.fa-heart.show_hover {
        border-radius: 100px;
     display: flex;
     font-size: 11px;justify-content: space-between;
-    margin-top: 10px;    padding: 5px 0;
+    margin-top: 12px;    padding: 5px 0;
 }
 .trade_sub .dropdown-menu.show a:hover {
     background: transparent;
@@ -1397,6 +1407,26 @@ i.icon-bell-alt {
 .MuiPaper-root {
     max-width: 100%!important;
 }
+.right_side {
+    width: 100%;
+}.dropdown.trade_sub {
+    float: right;width: 100%;
+}
+.dropdown.trade_sub a {
+    padding: 4px 15px;
+    border-radius: 100px;
+    float: right;
+    text-decoration: none;
+    background: #272f38;
+}.dropdown.trade_sub a:hover {
+    background: #15dac7;color: #fff;
+}
+.trade_sub .dropdown-menu.show a {
+    color: #b2b9c1;
+    padding: 4px 5px;
+    float: right;
+    text-decoration: none;
+}
 @media only screen and (max-width: 1500px){
  .trade_sub .dropdown-menu.show a{
     padding: 1px 4px;
@@ -1418,7 +1448,7 @@ body .min-h-full-screen{
 .login_form {width: 100%;}
 .Card .Body {
     margin-bottom: 0;}
-    	.sidebar_div {
+    	.sidebar_div {margin-left: 0;
     max-width: 100%;
 }
 .promo_tab {
@@ -1757,9 +1787,7 @@ ul#combo-box-demo-popup {
   .type.danger {
     color: red !important;
   }
-  element {
 
-}
 .LastTransactions table tbody tr td:nth-child(2) {
 
     text-align: left;
