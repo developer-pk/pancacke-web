@@ -17,6 +17,7 @@ import { useSelector } from 'react-redux'
 import { connect } from 'react-redux';
 import Header from '../common/Header'
 import Footer from '../common/Footer'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     cardHolder: {
@@ -189,23 +190,22 @@ const Login = () => {
                                         )}
                                     </div>
                                     <span className="mr-2 ml-5">or</span>
+                                    <Link to="/signup">
                                     <Button
                                         className="capitalize"
-                                        onClick={() =>
-                                            history.push('/signup')
-                                        }
                                     >
                                         Sign up
                                     </Button>
+                                    </Link>
+                                    
                                 </div>
+                                <Link to="/forgot-password">
                                 <Button
                                     className="text-primary"
-                                    onClick={() =>
-                                        history.push('/forgot-password')
-                                    }
                                 >
                                     Forgot password?
                                 </Button>
+                                </Link>
                             </ValidatorForm>
                         </div>
                     </Grid>
