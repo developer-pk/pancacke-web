@@ -105,7 +105,7 @@ body.chart-page.unselectable.on-widget {
 .ExplorerPage .Row .Chart {
     margin-left: 30px;
     background: transparent;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .ExplorerPage .col-md-7 {
     padding-right: 25px;
@@ -241,11 +241,18 @@ li.nav-item.alert_icon a:hover {
 }
 
 .price h5 {
-    font-size: 21px;
+    font-size: 19px;
     margin-top: 12px;
     color: #9ca7b4;
     margin-bottom: 1px;
     font-weight: 600;
+}
+.makeStyles-card-16 {
+    max-width: 100%;
+}
+
+.makeStyles-card-14 {
+    max-width: 100%;
 }
 li.nav-item.alert_icon a:last-child svg:hover {
     COLOR: #15dac7;
@@ -434,7 +441,7 @@ div#promoted li {
     background: #1A2038;
     justify-content: center;
 }.MuiPaper-root.MuiCard-root.makeStyles-card-2.MuiPaper-elevation1.MuiPaper-rounded {
-    box-shadow: none; margin: 0 auto;
+    box-shadow: none; margin: 0 auto;max-width: 100%;
 }
 .modal-popup-class i.fas.fa-times.pull-right {
     position: absolute;
@@ -1179,7 +1186,7 @@ span.buy-type {
     background-color: #232a32;
     border-radius: 100px;
 }
-.login_form {
+.login_form {width: 550px;
     background: #2c343e;
     padding: 30px 70px;
     text-align: center;
@@ -1384,6 +1391,12 @@ i.icon-bell-alt {
 .alarm-modal__footer-btn-container {
     justify-content: space-between;
 }
+.relative.button_css {
+    display: inline-flex;
+}
+.MuiPaper-root {
+    max-width: 100%!important;
+}
 @media only screen and (max-width: 1500px){
  .trade_sub .dropdown-menu.show a{
     padding: 1px 4px;
@@ -1401,6 +1414,8 @@ body .min-h-full-screen{
 
 }
 @media only screen and (max-width: 767px){
+    
+.login_form {width: 100%;}
 .Card .Body {
     margin-bottom: 0;}
     	.sidebar_div {
