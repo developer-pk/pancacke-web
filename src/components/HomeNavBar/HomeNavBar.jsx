@@ -292,6 +292,7 @@ const handleChange = ({ target: { name, value } }) => {
               });
               return acc;
             }, [])}
+            open
             styles={{
               input: (css) => ({
                 ...css,

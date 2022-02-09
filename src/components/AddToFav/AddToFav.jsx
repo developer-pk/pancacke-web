@@ -22,6 +22,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { getAlertTokenInfo, addTokenInFavourite, removeTokenFromFavourite } from '../../actions/frontend/TokenApiActions'
 import './Favorite.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   cardHolder: {
@@ -137,34 +138,38 @@ const handleAgree = () => {
       {(authenticated ? 
         (alertoken.length > 0 && alertoken[1].favorite == true ? 
             <a className="nav-link" href="#" onClick={() => handleFavRemoveOpen()}>
-                <button
+                {/* <button
       className='Favorite isFavourite'>
 
 <i className="icon-heart-empty"></i>
-      </button>
+      </button> */}
+      <FontAwesomeIcon icon={['fas', 'heart']} />
                 {/* <img className="heart-filled" src={process.env.PUBLIC_URL + "/images/heart.png"} /> */}
             </a> :
             <a className="nav-link" href="#" onClick={() => handleClickOpen()}>
-               <button
+               {/* <button
       className='Favorite'>
 
 <i className="icon-heart-empty"></i>
-      </button>
+      </button> */}
+     <FontAwesomeIcon icon={['fas', 'heart']} />
             </a>
         )
         :
         (alertoken.length > 0 && alertoken[1].favorite == true? 
             <a className="nav-link" href="#" onClick={() => handleLoginShow('heart')}> 
-             <button className='Favorite isFavourite'>
-            <i className="icon-heart-empty"></i></button>
+             {/* <button className='Favorite isFavourite'>
+            <i className="icon-heart-empty"></i></button> */}
+            <FontAwesomeIcon icon={['fas', 'heart']} />
                 {/* <img className="heart-filled" src={process.env.PUBLIC_URL + "/images/heart.png"} /> */}
             </a> :
             <a className="nav-link" href="#" onClick={() => handleLoginShow('heart')}> 
-                 <button
+                 {/* <button
       className='Favorite'>
 
 <i className="icon-heart-empty"></i>
-      </button>
+      </button> */}
+      <FontAwesomeIcon icon={['fas', 'heart']} />
             </a>
         )
     )}

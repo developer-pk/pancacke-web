@@ -35,6 +35,11 @@ import AuthGuard from './auth/AuthGuard'
 import { ToastContainer } from 'material-react-toastify';
 import 'material-react-toastify/dist/ReactToastify.css';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faHeart, faBell } from '@fortawesome/free-solid-svg-icons'
+library.add(fab,faHeart,faBell);
+
 const client = new QueryClient();
 function App() {
   const { theme, toggle } = useContext(ThemeContext);

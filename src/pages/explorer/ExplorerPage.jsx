@@ -360,12 +360,12 @@ const handleLoginClose = () => setLoginShow(false);
              
             </div>
             <div className="Row">
-              <div className="col-md-6">
+
+              <li class="nav-item alert_icon">
                 <AddToFav />
-              </div>
-              <div className="col-md-6">
+              
               <PriceNotification currentPrice={tokenPrice.price} symbol={tokenInfo.symbol} />
-              </div>
+              </li>
            
              
             </div>
@@ -387,7 +387,21 @@ const handleLoginClose = () => setLoginShow(false);
             <hr />
 
             <div className="tokenPrice">
-              <h1>
+            <div className="price">
+              <h5>PRICE: <span>${parsedCurrentPrice()}</span></h5>
+            <p>PRICE 24h CHANGE: <span>  
+               {Number(
+                    params.version === 'v2' ? tokenInfo.last24hChangeV2 : tokenInfo.last24hChange,
+                  ) >= 0
+                    ? '+'
+                    : '-'}
+                  {Math.abs(
+                    Number(
+                      params.version === 'v2' ? tokenInfo.last24hChangeV2 : tokenInfo.last24hChange,
+                    ),
+                  ).toFixed(2)}
+                  %</span></p></div>
+              {/* <h1>
                 PRICE: <br />
                 {parsedCurrentPrice()}
                 <small className="currency">{tokenPrice.currency}</small>
@@ -422,7 +436,7 @@ const handleLoginClose = () => setLoginShow(false);
                   ).toFixed(2)}
                   %
                 </span>
-              </h3>
+              </h3> */}
             </div>
 
             <hr />

@@ -27,6 +27,9 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { Modal, Form } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 const HighAlarm = new Audio(highAlarm);
 const LowAlarm = new Audio(lowAlarm);
 
@@ -266,37 +269,43 @@ console.log(isModalVisible,'is modal');
           onClick={() => handleAlertRemoveOpen()}
       >  
       {/* <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} /> */}
-      <button
+      {/* <button
       className='Bell isActive'>
       <i className="icon-bell"></i>
-    </button>
+    </button> */}
+
+<FontAwesomeIcon icon={['fas', 'bell']} />
       </a> :
       <a
       className="nav-link"
       href="#"
       onClick={handleShow}
   >
-        <button
+        {/* <button
       className='Bell'>
       <i className="icon-bell"></i>
     </button>
-      
+       */}
+
+       <FontAwesomeIcon icon={['fas', 'bell']} />
   </a>
       )
       :
       (alertoken.length > 0 && alertoken[1].alert == true ? 
           <a className="nav-link" href="#" onClick={() => handleLoginShow('alert')}> 
               {/* <img className="bell-filled" src={process.env.PUBLIC_URL + "/images/bell.png"} /> */}
-              <button
+              {/* <button
       className='Bell isActive'>
       <i className="icon-bell"></i>
-    </button>
+    </button> */}
+    <FontAwesomeIcon icon={['fas', 'bell']} />
           </a> :
           <a className="nav-link" href="#" onClick={() => handleLoginShow('alert')}> 
-             <button
+             {/* <button
       className='Bell'>
       <i className="icon-bell"></i>
-    </button>
+    </button> */}
+    <FontAwesomeIcon icon={['fas', 'bell']} />
           </a>
       )
       
