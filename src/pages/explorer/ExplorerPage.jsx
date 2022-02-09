@@ -360,12 +360,12 @@ const handleLoginClose = () => setLoginShow(false);
              
             </div>
             <div className="Row">
-              <div className="col-md-6">
+
+              <li class="nav-item alert_icon">
                 <AddToFav />
-              </div>
-              <div className="col-md-6">
+              
               <PriceNotification currentPrice={tokenPrice.price} symbol={tokenInfo.symbol} />
-              </div>
+              </li>
            
              
             </div>
