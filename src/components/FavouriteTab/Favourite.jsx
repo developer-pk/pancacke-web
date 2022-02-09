@@ -20,6 +20,7 @@ import {
   CircularProgress
 } from '@material-ui/core'
 import { useHistory, useParams } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   cardHolder: {
@@ -127,7 +128,8 @@ const handleLoginFormSubmit = async (event,values) => {
 <Modal id="add_alert3" className="modal-popup-class" show={showLogin} onHide={handleLoginClose}>
             
             <Modal.Body>
-            <i className="las la-times pull-right" onClick={handleLoginClose} />
+            <FontAwesomeIcon className="pull-right" icon={['fas', 'times']} onClick={handleLoginClose} />
+            {/* <i className="las la-times pull-right" onClick={handleLoginClose} /> */}
             {/* <Modal.Header closeButton>
            
            </Modal.Header> */}

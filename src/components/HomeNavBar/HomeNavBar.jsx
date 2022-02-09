@@ -26,6 +26,7 @@ import highAlarm from '../../assets/high.ogg';
 import lowAlarm from '../../assets/low.ogg';
 import icon from '../../assets/logo.png';
 import regex from '../../helpers/regexp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   cardHolder: {
@@ -412,7 +413,8 @@ const handleChange = ({ target: { name, value } }) => {
       <Modal id="add_alert3" className="modal-popup-class" show={showLogin} onHide={handleLoginClose}>
             
             <Modal.Body>
-            <i className="fas fa-times pull-right" onClick={handleLoginClose} />
+            <FontAwesomeIcon className="pull-right" icon={['fas', 'times']} onClick={handleLoginClose} />
+            {/* <i className="fas fa-times pull-right" onClick={handleLoginClose} /> */}
             {/* <Modal.Header closeButton>
            
            </Modal.Header> */}

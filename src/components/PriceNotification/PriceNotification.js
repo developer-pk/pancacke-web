@@ -313,7 +313,8 @@ console.log(isModalVisible,'is modal');
   <Modal id="add_alert3" className="modal-popup-class" show={showLogin} onHide={handleLoginClose}>
             
             <Modal.Body>
-            <i className="fas fa-times pull-right" onClick={handleLoginClose} />
+            <FontAwesomeIcon className="pull-right" icon={['fas', 'times']} onClick={handleLoginClose} />
+            {/* <i className="fas fa-times pull-right" onClick={handleLoginClose} /> */}
             {/* <Modal.Header closeButton>
            
            </Modal.Header> */}
@@ -418,7 +419,8 @@ console.log(isModalVisible,'is modal');
         <Modal id="add_alert2" className="modal-popup-class" show={show} onHide={handleClose}>
             
             <Modal.Body>
-            <i className="las la-times pull-right" onClick={handleClose} />
+            <FontAwesomeIcon className="pull-right" icon={['fas', 'times']} onClick={handleClose} />
+            {/* <i className="fas la-times pull-right" onClick={handleClose} /> */}
             {/* <Modal.Header closeButton>
            
            </Modal.Header> */}
