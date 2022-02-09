@@ -21,7 +21,6 @@ body {
     background: transparent!important;
 }
 nav#mainNav {
-    background: #131722;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;padding:3px 10px;
 }
@@ -125,7 +124,7 @@ body.chart-page.unselectable.on-widget {
     background: #2c343e;
     margin-bottom: 30px;
     border-bottom: 12px;
-    color: #87919d;
+    color: #87919d;padding: 10px;
 }
 .ExplorerPage .tokenInfo h2 {
     color: #ebcc86!important;}
@@ -242,17 +241,31 @@ li.nav-item.alert_icon a:hover {
 }
 
 .price h5 {
-    font-size: 23px;
+    font-size: 21px;
     margin-top: 12px;
     color: #9ca7b4;
     margin-bottom: 1px;
+    font-weight: 600;
+}
+li.nav-item.alert_icon a:last-child svg:hover {
+    COLOR: #15dac7;
+}
+li.nav-item.alert_icon a svg:hover {
+    COLOR: #f35451;
 }
 .price h5 span {
     color: #cad1d9;
 }
 .price p {
     font-weight: 500;
-    color: #87919d;
+    color: #87919d;font-size: 13px;
+}
+.search .react-select-custom__control.css-yk16xz-control {
+    background: transparent!important;
+}
+.search .react-select-custom__control {
+    background: #2f3945!important;
+    border: none!important;
 }
 .price p span{color:#15dac7}
 .copy {
@@ -484,6 +497,7 @@ div#promoted li {
 .Paginator ul li.icons button i {
     width: 10px;
     display: flex;
+    font-size: 18px;
 }
 
 .Paginator ul li.active button, .Paginator ul li:hover button{color: #fff}
@@ -740,9 +754,7 @@ i.fas.fa-bell.show_hover {
 .alert_icon i.mdi.mdi-heart {
     color: #ec514e!important;
 }
-.price p {
-    font-weight: 500;
-}
+
 p.media_icon a {
     width: 40px;
     height: 40px;
@@ -1381,7 +1393,35 @@ body .min-h-full-screen{
    min-height:77vh!important;}
     
 }
+
+@media only screen and (max-width: 1000px){
+.Container {
+    padding: 0 10px!IMPORTANT;
+}
+
+}
 @media only screen and (max-width: 767px){
+.Card .Body {
+    margin-bottom: 0;}
+    	.sidebar_div {
+    max-width: 100%;
+}
+.promo_tab {
+    margin-top: 30px;
+}.ExplorerPage .col-md-7 {
+    padding-right: 0px;
+}
+.Paginator {
+    bottom: -21px;
+}
+	div#navbarResponsive {
+    position: absolute;
+    top: 0;
+    background: transparent;
+    padding-right: 13px;
+    width: 100%;box-shadow: none;
+}
+
 .mobile_area {
     display: block;
 }
