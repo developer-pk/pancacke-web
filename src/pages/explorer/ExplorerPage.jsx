@@ -30,6 +30,8 @@ import Ads  from '../../components/Ads/Ads';
 import Tabs  from '../../components/Tabs/Tabs';
 import useAuth from '../../hooks/useAuth'
 import AddToFav from '../../components/AddToFav/AddToFav';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
@@ -266,6 +268,10 @@ const handleLoginClose = () => setLoginShow(false);
         setConfirmRemoveState(false);
     };
 
+    const [copied, setCopy] = useState(false);
+
+    const [getAddress, setAddress] = React.useState('0x3b831d36ed418e893f42d46ff308c326c239429f')
+
   return (
     <div className="ExplorerPage">
       <HomeNavBar currentPrice={tokenPrice.price} symbol={tokenInfo.symbol} />
@@ -439,6 +445,23 @@ const handleLoginClose = () => setLoginShow(false);
               </h3> */}
             </div>
 
+            <div className="copy left_side">
+                                        {/* 0x3ee2......435d47{' '} */}
+                                        {(tokenInfo.contractAddress ? tokenInfo.contractAddress.substring(0, 18)+'... ' : '0x3ee2......435d47')}
+                                        {(tokenInfo.contractAddress) ? 
+                                        <CopyToClipboard text={tokenInfo.contractAddress}
+                                            onCopy={() => setCopy(true)}>
+                                            <span><FontAwesomeIcon icon={['fas', 'copy']} /></span>
+                                            </CopyToClipboard> : <CopyToClipboard text='0x3ee2f7d3d7f4s435d47 '
+                                            onCopy={() => setCopy(true)}>
+                                            <span><FontAwesomeIcon icon={['fas', 'copy']} /></span>
+                                            </CopyToClipboard>
+                                        }
+                                            {copied ? <span style={{color: 'red'}}>Copied.</span> : null}
+                                    
+                                       
+</div>
+
             <hr />
 
             <div className="textWithSmallButton pair-address">
@@ -449,6 +472,8 @@ const handleLoginClose = () => setLoginShow(false);
                 checked={params.version === 'v2'}
               />
             </div>
+
+            
 
             <div className="textWithSmallButton">
               <p>PANCAKESWAP</p>
@@ -463,7 +488,30 @@ const handleLoginClose = () => setLoginShow(false);
             </div>
 
             <div className="textWithSmallButton">
-              <p>BSC Scan</p>
+            <div className="right_side">
+                                        <p className="tag_btn">
+                                            <img
+                                                alt="img-text"
+                                                src={process.env.PUBLIC_URL + "/images/bscscan.png"}
+                                            />{' '}
+                                            BSC SCAN{' '}
+                                            <div className="dropdown trade_sub">
+                                                <a className="dropdown-toggle" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VIEW{' '} <FontAwesomeIcon icon={['fas', 'angle-down']} />
+                                                                                        </a>
+                                            
+                                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <a className="dropdown-item" target="_blank" href={"https://bscscan.com/txs?a="+(tokenInfo.contractAddress ? tokenInfo.contractAddress : "0x3b831d36ed418e893f42d46ff308c326c239429f")}>Transfers</a>
+                                                <a className="dropdown-item" target="_blank" href={"https://bscscan.com/token/tokenholderchart/"+(tokenInfo.contractAddress ? tokenInfo.contractAddress : "0x3b831d36ed418e893f42d46ff308c326c239429f")}>Holders</a>
+                                                <a className="dropdown-item" target="_blank" href={"https://bscscan.com/address/"+(tokenInfo.contractAddress ? tokenInfo.contractAddress : "0x3b831d36ed418e893f42d46ff308c326c239429f")}>Contracts</a>
+                                            </div>
+                                            </div>
+                                            {/* <a href="https://bscscan.com/token/0x3b831d36ed418e893f42d46ff308c326c239429f">
+                                                TRADE{' '}
+                                                <i className="fas fa-angle-down"></i>
+                                            </a> */}
+                                        </p>
+                                        </div>
+              {/* <p>BSC Scan</p>
               <a
                 href={`https://bscscan.com/token/${tokenInfo.contractAddress}`}
                 target="_blank"
@@ -471,7 +519,7 @@ const handleLoginClose = () => setLoginShow(false);
                 className="button"
               >
                 View
-              </a>
+              </a> */}
             </div>
 
             <div className="textWithSmallButton">

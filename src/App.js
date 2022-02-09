@@ -38,8 +38,8 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Login from './pages/Login/Login';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faHeart, faBell, faTimes } from '@fortawesome/free-solid-svg-icons'
-library.add(fab,faHeart,faBell,faTimes);
+import { faCheckSquare, faHeart, faBell, faTimes, faCopy, faAngleDown } from '@fortawesome/free-solid-svg-icons'
+library.add(fab,faHeart,faBell,faTimes,faCopy,faAngleDown);
 
 const client = new QueryClient();
 function App() {
