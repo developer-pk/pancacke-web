@@ -119,7 +119,7 @@ export const getAlertTokenInfo = (token) => (dispatch) => {
             },
         })
         .then((res) => {
-            history.push('/token')
+           // history.push('/token')
             dispatch({
                 type: GET_ALERT_TOKEN_INFO,
                 payload: res.data,
@@ -189,7 +189,7 @@ export const removeTokenFromFavourite = (tokenInfo) => (dispatch) => {
         .then((res) => {
             if (res.status == 201 || res.status == 200) {
                 toast.success(res.data.message)
-                history.push('/token');
+                //history.push('/token');
             }
             dispatch({
                 type: REMOVE_FAVOURITE,
@@ -225,7 +225,7 @@ export const removeAlert = (tokenInfo) => (dispatch) => {
         .then((res) => {
             if (res.status == 201 || res.status == 200) {
                 toast.success(res.data.message)
-                history.push('/token');
+                //history.push('/token');
             }
             dispatch({
                 type: REMOVE_ALERT,
