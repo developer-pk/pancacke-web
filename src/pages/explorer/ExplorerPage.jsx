@@ -204,7 +204,8 @@ const handleLoginClose = () => setLoginShow(false);
         },
         limit: 1,
       };
-      fetch(`${config.API_URL}/tokens/search?filter=${JSON.stringify(filter)}`)
+      try{ 
+        fetch(`${config.API_URL}/tokens/search?filter=${JSON.stringify(filter)}`)
         .then((res) => res.json())
         .then((res) => {
           if (res.success && res.data.length > 0) {
@@ -233,6 +234,10 @@ const handleLoginClose = () => setLoginShow(false);
               });
           }
         });
+      } catch(e) { 
+        console.error(e,'failed to fetch');
+       }
+
     };
     updatePairInfo(false);
 
