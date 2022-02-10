@@ -7,7 +7,7 @@
 * {
     font-family: "Montserrat";
 }
-
+a{text-decoration: none!important;}
 body {
     background: #232a32!important;
     /* padding: 0px 30px;   */
