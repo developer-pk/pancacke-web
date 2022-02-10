@@ -1392,8 +1392,8 @@ ul#combo-box-demo-popup {
     height:70%;
     width:70%;
 }
-.paste-symbol{
-    margin-left: -55px;
+.paste-symbol1{
+    /* margin-left: -55px; */
     color: white;
     cursor:pointer;
 }

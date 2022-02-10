@@ -42,11 +42,12 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 }));
 
-const DropdownIndicator = (props) => (
-  <components.DropdownIndicator {...props}>
-    <i className="icon-search"></i>
-  </components.DropdownIndicator>
-);
+// const DropdownIndicator = (props) => (
+//   <components.DropdownIndicator {...props}>
+//     <i className="icon-search"></i>
+//     <span onClick={pasteSymbol}>PASTE</span>
+//   </components.DropdownIndicator>
+// );
 const HighAlarm = new Audio(highAlarm);
 const LowAlarm = new Audio(lowAlarm);
 
@@ -293,6 +294,51 @@ const handleAlarmClose = () => {
   setShow(false);
 
 }
+const [selectedSymbol, setSelectedSymbol] = useState()
+const pasteSymbol = () => {
+  navigator.clipboard
+      .readText()
+      .then((text) => {
+          if (text) {
+             // setLoader('show')
+              
+              const filter = {
+                where: {
+                  or: [
+                    { symbol: { regexp: new RegExp(`.*${text}.*`, 'i').toString() } },
+                    { contractAddress: { regexp: new RegExp(`.*${text}.*`, 'i').toString() } },
+                    { v1PairAddress: { regexp: new RegExp(`.*${text}.*`, 'i').toString() } },
+                    { v2PairAddress: { regexp: new RegExp(`.*${text}.*`, 'i').toString() } },
+                  ],
+                },
+                order: 'v2TopPosition ASC',
+                limit: 50,
+              };
+              fetch(`${config.API_URL}/tokens/search?filter=${JSON.stringify(filter)}`)
+                .then((res) => res.json())
+                .then((res) => {
+                  if (res.success) {
+                    console.log('tokens: ', res.data);
+                    setTokens(res.data);
+                  }
+                });
+          } else {
+              toast.error('Nothing copied to paste.')
+          }
+          setSelectedSymbol(text)
+          console.log('Pasted content: ', text,selectedSymbol)
+      })
+      .catch((err) => {
+          console.error('Failed to read clipboard contents: ', err)
+      })
+}
+const DropdownIndicator = (props) => (
+  <components.DropdownIndicator {...props}>
+    {/* <i className="icon-search"></i> */}
+    <span className="paste-symbol1" onClick={pasteSymbol}>PASTE</span>
+  </components.DropdownIndicator>
+);
+
   /**end */
 
   return (
@@ -310,7 +356,7 @@ const handleAlarmClose = () => {
             }}
             filterOption={() => true}
             onChange={handleOnChangeToken}
-            value={null}
+            value={selectedSymbol}
             options={tokens.reduce((acc, current) => {
               acc.push({
                 label: <SearchElement element={current} />,
