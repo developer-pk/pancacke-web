@@ -1,12 +1,12 @@
 import { createContext, useLayoutEffect, useState } from 'react';
 
 const ThemeContext = createContext({
-  theme: localStorage.getItem('settings-theme') ?? 'light',
+  theme: localStorage.getItem('settings-theme') ?? 'dark',
   toggle: () => {},
 });
 
 export const ThemeProvider = (props) => {
-  const [theme, setTheme] = useState(localStorage.getItem('settings-theme') ?? 'light');
+  const [theme, setTheme] = useState(localStorage.getItem('settings-theme') ?? 'dark');
 
   useLayoutEffect(() => {
     if (theme === 'light') {
