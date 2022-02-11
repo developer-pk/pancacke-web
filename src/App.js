@@ -31,7 +31,7 @@ import useAuth from './hooks/useAuth';
 // import { default as GlobalCss  } from './styles/GlobalCss';
 // import { SettingsProvider } from './contexts/SettingsContext';
 import AuthGuard from './auth/AuthGuard'
-
+import { useHistory, useParams } from 'react-router';
 import { ToastContainer } from 'material-react-toastify';
 import 'material-react-toastify/dist/ReactToastify.css';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
@@ -42,9 +42,10 @@ import { faCheckSquare, faHeart, faBell, faTimes, faCopy, faAngleDown } from '@f
 library.add(fab,faHeart,faBell,faTimes,faCopy,faAngleDown);
 
 const client = new QueryClient();
+
 function App() {
   const { theme, toggle } = useContext(ThemeContext);
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const {
     isAuthenticated,
@@ -74,7 +75,7 @@ function App() {
                                 pauseOnFocusLoss
                                 draggable
                                 pauseOnHover />
-        <Router>
+        <Router history={history}>
           <AuthProvider>
             {/* <Navbar theme={theme} toggleTheme={toggle} /> */}
             <Container>

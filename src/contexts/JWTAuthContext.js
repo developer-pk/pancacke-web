@@ -144,7 +144,7 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         setSession(null)
         dispatch({ type: 'LOGOUT' })
-        history.push('/session/signin')
+        history.push('/login')
     }
 
     useEffect(() => {

@@ -58,7 +58,7 @@ const WalletBar = () => {
   }
 
   return (
-    <div className="WalletBar">
+    <div className="WalletBar desktop_view">
       <button onClick={openModal}>Connect Wallet</button>
       {wallet.loading && <LoadingScreen />}
       {modalOpen && (

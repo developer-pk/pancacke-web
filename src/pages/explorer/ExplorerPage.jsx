@@ -279,7 +279,242 @@ const handleLoginClose = () => setLoginShow(false);
 
   return (
     <div className="ExplorerPage">
-      <HomeNavBar currentPrice={tokenPrice.price} symbol={tokenInfo.symbol} />
+<HomeNavBar currentPrice={tokenPrice.price} symbol={tokenInfo.symbol} />
+<div className="mobile_area top_bar dropdown">
+            <div className="Mobile_head">
+            <ul>
+                <li className="ada_logo"> 
+                    <a className="nav-link" href="#">
+             
+              
+              <img
+              className="img-text"
+                src={`https://exchange.pancakeswap.finance/images/coins/${tokenInfo.contractAddress}.png`}
+                onError={(e) => {
+                  e.target.onError = null;
+                  if (tokenInfo.contractAddress && tokenInfo.contractAddress.length >= 15) {
+                    tokenInfo.symbol === 'Tcake'
+                      ? (e.target.src = tcakeLogo)
+                      : (e.target.src = `data:image/png;base64,${new Identicon(
+                          tokenInfo.contractAddress,
+                          200,
+                        ).toString()}`);
+                  }
+                }}
+                alt={tokenInfo.symbol}
+              />
+                        <b> <span>{tokenInfo.symbol}</span>
+                        </b>
+                    </a>
+                </li>
+                
+                <li>
+                <div className="price">
+                    <h5>
+                    PRICE: ${parsedCurrentPrice()}
+                    </h5>
+                   
+                
+                </div>
+
+            </li>
+            <li>
+                <p>24H {Number(
+                    params.version === 'v2' ? tokenInfo.last24hChangeV2 : tokenInfo.last24hChange,
+                  ) >= 0
+                    ? '+'
+                    : '-'}
+                  {Math.abs(
+                    Number(
+                      params.version === 'v2' ? tokenInfo.last24hChangeV2 : tokenInfo.last24hChange,
+                    ),
+                  ).toFixed(2)}
+                  %
+                        {/* <span>+5%</span> */}
+                </p>
+            </li>
+            <li>
+                <div className="token_info">
+                    <h5>TOKEN INFO <a id="info" className="token-info-toggle" data-toggle="collapse" href="#myContent" role="button" aria-expanded="false" aria-controls="myContent"> 
+                    <FontAwesomeIcon icon={['fas', 'angle-down']} />
+                        </a></h5>
+                
+
+
+                        
+
+                   
+                </div>
+            </li>
+         </ul>
+
+                  
+                                
+    </div>
+
+     <div id="myContent" className="collapse multi-collapse" aria-labelledby="info">
+     <h4>TOKEN INFO:</h4>
+     <div className="copy_text token_infoo">
+                                    <div className="copy left_side">
+                                    {(tokenInfo.contractAddress ? tokenInfo.contractAddress.substring(0, 18)+'... ' : '0x3ee2......435d47')}
+                                        {(tokenInfo.contractAddress) ? 
+                                        <CopyToClipboard text={tokenInfo.contractAddress}
+                                            onCopy={() => setCopy(true)}>
+                                            <span><FontAwesomeIcon icon={['fas', 'copy']} /></span>
+                                            </CopyToClipboard> : <CopyToClipboard text='0x3ee2f7d3d7f4s435d47 '
+                                            onCopy={() => setCopy(true)}>
+                                            <span><FontAwesomeIcon icon={['fas', 'copy']} /></span>
+                                            </CopyToClipboard>
+                                        }
+                                            {copied ? <span style={{color: 'red'}}>Copied.</span> : null}
+                                    
+                                       
+</div>
+                                       <div className="right_side">
+<ul className="nav">
+                                    <li className="nav-item alert_icon">
+                                    <AddToFav />
+              
+              <PriceNotification currentPrice={tokenPrice.price} symbol={tokenInfo.symbol} />
+                                    </li>
+                                </ul>
+                                       </div>
+
+                                    </div>
+                                    {/* <div className="market_cap token_infoo">
+                                    <div className="left_side">
+                                        <p>
+                                            MARKET CAP:{' '}
+                                            {tokenotherinfo.data.values ? 
+                                               // tokenotherinfo[0].data.map((token, index) =>
+                                                <NumberFormat value={tokenotherinfo.data.values.USD.marketCap} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2} />
+                                            //)
+                                                : <span>$399,578.08</span> }
+                                            
+                                        </p>
+                                        <p>
+                                            VOLUME 24H:{' '}
+                                            {tokenotherinfo.data.values ? 
+                                                //tokenotherinfo[0].data.map((token, index) =>
+                                                <NumberFormat value={tokenotherinfo.data.values.USD.volume24h} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                                            
+                                                : <span>N/A</span> }
+                                        </p>
+                                        </div>
+
+                                    <div className="right_side">
+                                        <p>
+                                            TOTAL SUPPLY:{' '}
+                                            {tokenotherinfo.data.totalSupply ? 
+                                                //tokenotherinfo[0].data.map((token, index) =>
+                                                <span className="number">{tokenotherinfo.data.totalSupply}</span>
+                                            //)
+                                                : <span><NumberFormat value='178,499,565.878013' displayType={'text'} thousandSeparator={true} decimalScale={2} /></span> }
+                                            
+                                        </p>
+                                        <p>
+                                            LIQUIDITY: <span>N/A</span>
+                                        </p>
+                                    </div>
+                                    </div> */}
+
+                                    <div className="pans">
+                                    <div className="token_infoo">
+                                    <div className="left_side">
+                                        <p>
+                                            PANCAKESWAP <a href={"https://pancakeswap.finance/swap#/swap?outputCurrency="+tokenInfo.contractAddress ? tokenInfo.contractAddress : "0x3b831d36ed418e893f42d46ff308c326c239429f"}>TRADE</a>
+                                        </p>
+                                        </div>
+
+                                    <div className="right_side">
+                                        <p className="tag_btn">
+                                            <img
+                                                alt="img-text"
+                                                src={process.env.PUBLIC_URL + "/images/bscscan.png"}
+                                            />{' '}
+                                            BSC SCAN{' '}
+                                            <div className="dropdown trade_sub">
+                                                <a className="dropdown-toggle" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VIEW{' '} <FontAwesomeIcon icon={['fas', 'angle-down']} />
+                                                                                        </a>
+                                            
+                                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <a className="dropdown-item" target="_blank" href={"https://bscscan.com/txs?a="+(tokenInfo.contractAddress ? tokenInfo.contractAddress : "0x3b831d36ed418e893f42d46ff308c326c239429f")}>Transfers</a>
+                                                <a className="dropdown-item" target="_blank" href={"https://bscscan.com/token/tokenholderchart/"+(tokenInfo.contractAddress ? tokenInfo.contractAddress : "0x3b831d36ed418e893f42d46ff308c326c239429f")}>Holders</a>
+                                                <a className="dropdown-item" target="_blank" href={"https://bscscan.com/address/"+(tokenInfo.contractAddress ? tokenInfo.contractAddress : "0x3b831d36ed418e893f42d46ff308c326c239429f")}>Contracts</a>
+                                            </div>
+                                            </div>
+                                            {/* <a href="https://bscscan.com/token/0x3b831d36ed418e893f42d46ff308c326c239429f">
+                                                TRADE{' '}
+                                                <i className="fas fa-angle-down"></i>
+                                            </a> */}
+                                        </p>
+                                        </div>
+                                        </div>
+                                        <p className="media_icon">
+                                            MEDIA
+                                            <SocialNav
+              style={{ justifyContent: 'center' }}
+              elements={[
+                tokenInfo.website !== null && {
+                  label: <i className="icon-globe" />,
+                  href: tokenInfo.website,
+                },
+                tokenInfo.twitter !== null && {
+                  label: <i className="icon-twitter" />,
+                  href: tokenInfo.twitter,
+                },
+                tokenInfo.chat !== null && {
+                  label: <i className="icon-telegram-1" />,
+                  href: tokenInfo.chat,
+                },
+                tokenInfo.reddit !== null && {
+                  label: <i className="icon-reddit" />,
+                  href: tokenInfo.reddit,
+                },
+              ]}
+            />
+                                        </p>
+                                    </div> 
+                    </div>
+
+                    <nav>
+                    <div className="tab-content" id="nav-tabContent">
+  <div className="tab-pane fade show active" id="home_chart" role="tabpanel" aria-labelledby="home_chart_menu">
+    <div id="cruncy-chart">
+    <Chart theme={theme} />
+           
+    </div>
+  </div>
+  <div className="tab-pane fade" id="home_trade" role="tabpanel" aria-labelledby="home_trade_menu">
+  <div className="pricing-table">
+                            <Card>
+                            <LastTransactions
+            tokenAddress={tokenInfo.contractAddress}
+            contract={params.version === 'v2' ? tokenInfo.v2PairAddress : tokenInfo.v1PairAddress}
+            v1contract={tokenInfo.v1PairAddress}
+            v2contract={tokenInfo.v2PairAddress}
+          />
+                                </Card>
+                                </div>
+  </div>
+  <div className="tab-pane fade" id="home_promo" role="tabpanel" aria-labelledby="home_promo_menu">
+<div className="promo_tab">
+                   <Tabs />
+                                </div>
+  </div>
+</div>
+  <div className="nav nav-tabs chart_tab" id="nav-tab" role="tablist">
+    <a className="nav-item nav-link active" id="home_chart_menu" data-toggle="tab" href="#home_chart" role="tab" aria-controls="home_chart" aria-selected="true">Chart</a>
+    <a className="nav-item nav-link" id="home_trade_menu" data-toggle="tab" href="#home_trade" role="tab" aria-controls="nav-profile" aria-selected="false">Trades</a>
+    <a className="nav-item nav-link" id="home_promo_menu" data-toggle="tab" href="#home_promo" role="tab" aria-controls="nav-contact" aria-selected="false">promoted</a>
+  </div>
+</nav>
+
+<div className="sidebar_div mobile_add">
+              <Ads />
+      </div>
+</div>
+      
       <WalletBar />
     
       {/* {!isSubscription ? (
@@ -294,7 +529,7 @@ const handleLoginClose = () => setLoginShow(false);
         </div>
       ) : null}
 
-      <div className="Row">
+      <div className="Row desktop_view">
         <Card>
           <Card.Header>TOKEN INFO:</Card.Header>
           <Card.Body>
@@ -557,7 +792,7 @@ const handleLoginClose = () => setLoginShow(false);
         <Chart theme={theme} />
       </div>
 
-      <div className="Row">
+      <div className="Row desktop_view">
         {/* {windowWidth >= 1550 && !isSubscription && (
           <BannerPlace
             position="LEFT"
