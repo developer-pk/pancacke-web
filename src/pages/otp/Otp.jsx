@@ -18,6 +18,8 @@ import { connect } from 'react-redux';
 import {verifyOtp, resendOtp} from '../../actions/frontend/OtpActions'
 import { ToastContainer, toast } from 'material-react-toastify';
 import './otp.scss';
+import Header from '../common/Header'
+import Footer from '../common/Footer'
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     cardHolder: {
@@ -76,6 +78,9 @@ const Otp = ({ dispatch }) => {
 
 
     return (
+        <div>
+            <Header />
+        
         <div
             className={clsx(
                 'flex justify-center items-center  min-h-full-screen',
@@ -95,12 +100,11 @@ const Otp = ({ dispatch }) => {
                 <Grid container>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <div className="p-8 h-full bg-light-gray relative">
-                            <ValidatorForm onSubmit={handleFormSubmit}>
+                            <ValidatorForm className="login_form" onSubmit={handleFormSubmit}>
                                 <TextValidator
                                     className="mb-6 w-full"
                                     variant="outlined"
                                     size="small"
-                                    label="OTP"
                                     placeholder="Enter OTP"
                                     onChange={handleChange}
                                     type="text"
@@ -150,6 +154,8 @@ const Otp = ({ dispatch }) => {
                     </Grid>
                 </Grid>
             </Card>
+        </div>
+        <Footer />
         </div>
     )
 }

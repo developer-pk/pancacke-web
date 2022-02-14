@@ -29,7 +29,7 @@ import regex from '../../helpers/regexp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import {createAlert} from '../../actions/common/AlertActions'
-import { getAlertTokenInfo } from '../../actions/frontend/TokenApiActions'
+import { getAlertTokenInfo , getTokenOtherInfo } from '../../actions/frontend/TokenApiActions'
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   cardHolder: {
@@ -64,7 +64,7 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
   };
 
   const dispatch = useDispatch();
-  const { tokeninfo } = useSelector(state=>state);
+  const { tokeninfo, tokenotherinfo } = useSelector(state=>state);
   const [highPrice, setHighPrice] = useState(
     localStorage.getItem(`HIGH_PRICE_ALARM_${symbol}`) ?? '',
   );
@@ -157,6 +157,7 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
     setHighPrice(localStorage.getItem(`HIGH_PRICE_ALARM_${symbol}`));
     setHighPriceNotificationSent(false);
     setLowPriceNotificationSent(false);
+    dispatch(getTokenOtherInfo(symbol));
   }, [symbol]);
 
   useEffect(() => {
@@ -223,6 +224,7 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
           setTokens(res.data);
         }
       });
+      
   }, [searchInput]);
 
   const {
@@ -295,13 +297,14 @@ const handleAlarmClose = () => {
 
 }
 const [selectedSymbol, setSelectedSymbol] = useState()
+const selectref = useRef(null);
 const pasteSymbol = () => {
   navigator.clipboard
       .readText()
       .then((text) => {
           if (text) {
              // setLoader('show')
-              
+            // selectref.select.setValue("hello")
               const filter = {
                 where: {
                   or: [
@@ -325,13 +328,17 @@ const pasteSymbol = () => {
           } else {
               toast.error('Nothing copied to paste.')
           }
+          document.getElementById("react-select-3-input").value = text;
+        //  React.findDOMNode("#react-select-3-input").setValue('hello');
+          //$("#react-select-3-input").
           setSelectedSymbol(text)
-          console.log('Pasted content: ', text,selectedSymbol)
+          console.log('Pasted content: ', text)
       })
       .catch((err) => {
           console.error('Failed to read clipboard contents: ', err)
       })
 }
+console.log('anj',tokenotherinfo);
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
     {/* <i className="icon-search"></i> */}
@@ -349,6 +356,7 @@ const DropdownIndicator = (props) => (
         </a>
         <div className="search">
           <Select
+          selectref="select"
             onInputChange={setSearchInput}
             classNamePrefix="react-select-custom"
             components={{
@@ -356,10 +364,10 @@ const DropdownIndicator = (props) => (
             }}
             filterOption={() => true}
             onChange={handleOnChangeToken}
-            value={selectedSymbol}
+            value={null}
             options={tokens.reduce((acc, current) => {
               acc.push({
-                label: <SearchElement element={current} />,
+                label: <SearchElement element={current} tokenImg={tokenotherinfo} />,
                 value: current.symbol + '/' + current.contractAddress,
               });
               return acc;

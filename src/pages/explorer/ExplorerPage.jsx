@@ -76,7 +76,7 @@ export const ExplorerPage = ({ theme }) => {
     setLoginShow(true);
 }
 const handleLoginClose = () => setLoginShow(false);
-  const {alertoken} = useSelector(state=>state);
+  const {alertoken, tokenotherinfo} = useSelector(state=>state);
 
   const isSubscription = loggedIn && subscriptionEndTimestamp * 1000 > Date.now();
 
@@ -587,8 +587,8 @@ const handleLoginClose = () => setLoginShow(false);
                     </a>
                 )
             )} */}
-             <img
-                src={`https://exchange.pancakeswap.finance/images/coins/${tokenInfo.contractAddress}.png`}
+            <img
+                src={tokenotherinfo.data.images ? tokenotherinfo.data.images['16x16'] : process.env.PUBLIC_URL + '/images/logo-new.png'}
                 onError={(e) => {
                   e.target.onError = null;
                   if (tokenInfo.contractAddress && tokenInfo.contractAddress.length >= 15) {
@@ -602,6 +602,21 @@ const handleLoginClose = () => setLoginShow(false);
                 }}
                 alt={tokenInfo.symbol}
               />
+             {/* <img
+                src={`https://exchange.pancakeswap.finance/images/coins/${tokenInfo.contractAddress}.png`}
+                onError={(e) => {
+                  e.target.onError = null;
+                  if (tokenInfo.contractAddress && tokenInfo.contractAddress.length >= 15) {
+                    tokenInfo.symbol === 'Tcake'
+                      ? (e.target.src = tcakeLogo)
+                      : (e.target.src = `data:image/png;base64,${new Identicon(
+                          tokenInfo.contractAddress,
+                          200,
+                        ).toString()}`);
+                  }
+                }}
+                alt={tokenInfo.symbol}
+              /> */}
               <h2>{tokenInfo.symbol}</h2>
              
             </div>

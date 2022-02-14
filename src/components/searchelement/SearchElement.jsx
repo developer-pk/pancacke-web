@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useEffect, useContext, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import './SearchElement.scss';
 import Identicon from 'identicon.js';
 import tcakeIcon from '../../assets/logom.png';
+import {  getTokenOtherInfo } from '../../actions/frontend/TokenApiActions'
+import { useDispatch , useSelector, connect } from 'react-redux'
 
-const SearchElement = ({ element }) => {
+const SearchElement = ({ element, tokenImg }) => {
+
+  const dispatch = useDispatch();
+  //const { tokenotherinfo } = useSelector(state=>state);
+  useEffect(() => {
+    //dispatch(getTokenOtherInfo(element.symbol));
+  }, [element]);
+
+  //console.log(tokenotherinfo)
   return (
     <div className="SearchElement">
+      {/* <img
+                                        src={`https://pancakeswap.finance/images/tokens/${val.address}.png`}
+                                        onError={(e) => {
+                                        e.target.onError = null;
+                                        if (val.address.length >= 15) {
+                                            val.symbol === 'Tcake'
+                                            ? (e.target.src = process.env.PUBLIC_URL + '/images/logo-new.png')
+                                            : (e.target.src = process.env.PUBLIC_URL + '/images/Emoji_Icon_-_Thinking_large.webp');
+                                        }
+                                        }}
+                                        alt={val.symbol} className="token-img-auto" 
+                                /> */}
       <img
-        src={`https://exchange.pancakeswap.finance/images/coins/${element.contractAddress}.png`}
+        src={(element.symbol == tokenImg.data.symbol ) ? (tokenImg.data.images ? tokenImg.data.images['16x16'] : `https://pancakeswap.finance/images/tokens/${element.contractAddress}.png`) : `https://pancakeswap.finance/images/tokens/${element.contractAddress}.png`}
         onError={(e) => {
           e.target.onError = null;
           if (element.contractAddress.length >= 15) {
@@ -34,4 +56,4 @@ SearchElement.propTypes = {
   }),
 };
 
-export default SearchElement;
+export default connect()(SearchElement);
