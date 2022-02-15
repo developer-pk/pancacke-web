@@ -59,7 +59,9 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
   const [searchInput, setSearchInput] = useState('');
   const history = useHistory();
   const { login, logout } = useAuth();
+  const [selectedSymbol, setSelectedSymbol] = useState();
   const handleOnChangeToken = (selected) => {
+
     history.push(`/pair-explorer/${selected.value}/v2`);
   };
 
@@ -296,7 +298,7 @@ const handleAlarmClose = () => {
   setShow(false);
 
 }
-const [selectedSymbol, setSelectedSymbol] = useState()
+
 const selectref = useRef(null);
 const pasteSymbol = () => {
   navigator.clipboard
@@ -304,7 +306,7 @@ const pasteSymbol = () => {
       .then((text) => {
           if (text) {
              // setLoader('show')
-            // selectref.select.setValue("hello")
+             setSelectedSymbol(text);
               const filter = {
                 where: {
                   or: [
@@ -331,7 +333,7 @@ const pasteSymbol = () => {
           document.getElementById("react-select-3-input").value = text;
         //  React.findDOMNode("#react-select-3-input").setValue('hello');
           //$("#react-select-3-input").
-          setSelectedSymbol(text)
+          //setSelectedSymbol(text)
           console.log('Pasted content: ', text)
       })
       .catch((err) => {
@@ -344,7 +346,7 @@ const DropdownIndicator = (props) => (
     <span className="paste-symbol1" onClick={pasteSymbol}>PASTE</span>
   </components.DropdownIndicator>
 );
-
+console.log(selectedSymbol,'symbol');
   /**end */
 
   return (
@@ -363,7 +365,7 @@ const DropdownIndicator = (props) => (
             }}
             filterOption={() => true}
             onChange={handleOnChangeToken}
-            value={null}
+            value={selectedSymbol}
             options={tokens.reduce((acc, current) => {
               acc.push({
                 label: <SearchElement element={current} />,
