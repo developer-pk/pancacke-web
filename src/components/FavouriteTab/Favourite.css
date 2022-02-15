@@ -22,6 +22,17 @@ div#navbarSupportedContent {
 .otp_button .relative {
     display: inline-flex;
 }
+.otp_button a {
+    color: #fff!important;
+}
+.common-footer-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+form.login_form.otp_login {
+    margin-top: 10%;
+}
 button.navbar-toggler{z-index: 2;}
 * {
     font-family: "Montserrat";
