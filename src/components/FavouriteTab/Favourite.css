@@ -11,11 +11,10 @@
 .otp_page form.login_form {
     padding: 50px;
 }
-
-div#navbarSupportedContent {
-    background: #2c343e;
-    z-index: 2;
+.makeStyles-cardHolder-1 {
+    background: #232a32!important;
 }
+
 .dropdown-menu.sub_menu.show {
     background: #2c343e;
 }
@@ -478,7 +477,7 @@ div#promoted li {
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    background: #1A2038;
+    background: #232a32;
     justify-content: center;
 }.MuiPaper-root.MuiCard-root.makeStyles-card-2.MuiPaper-elevation1.MuiPaper-rounded {
     box-shadow: none; margin: 0 auto;max-width: 100%;
@@ -1055,7 +1054,7 @@ div#navbarSupportedContent .navbar-nav {
     justify-content: right;
     width: 100%;
 }button.navbar-toggler span {
-    background: #131722;
+    background: #fff;
     width: 23px;
     height: 1px;
     margin: 6px 0;
@@ -1064,8 +1063,10 @@ div#navbarSupportedContent .navbar-nav {
 button.navbar-toggler {
     background: #2c343e;
     position: absolute;
-    right: 11%;
     top: 15%;
+    width: 47px;
+    margin-top: 6px;
+    color: #fff;
 }
 nav.navbar.navbar-expand-lg.header #navbarSupportedContent li a:hover {
     color: #fff;
@@ -1472,7 +1473,14 @@ body .min-h-full-screen{
 
 }
 @media only screen and (max-width: 767px){
-    a#dropdownMenuButton1 {
+  
+     div#navbarSupportedContent {
+        z-index: 2;
+    }
+    body .min-h-full-screen {
+        min-height: auto!important;
+    }
+     a#dropdownMenuButton1 {
        position: inherit; 
          right: 0; 
         top: -0;
