@@ -28,6 +28,7 @@ import Footer from '../../pages/common/Footer';
 import { SERVICE_URL, DEFAULT_SERVICE_VERSION } from "../../constants/utility"
 import Ads  from '../../components/Ads/Ads';
 import Tabs  from '../../components/Tabs/Tabs';
+import MobileTabs  from '../../components/Tabs/MobileTabs';
 import useAuth from '../../hooks/useAuth'
 import AddToFav from '../../components/AddToFav/AddToFav';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
@@ -499,7 +500,7 @@ const handleLoginClose = () => setLoginShow(false);
   </div>
   <div className="tab-pane fade" id="home_promo" role="tabpanel" aria-labelledby="home_promo_menu">
 <div className="promo_tab">
-                   <Tabs />
+                   <MobileTabs />
                                 </div>
   </div>
 </div>
