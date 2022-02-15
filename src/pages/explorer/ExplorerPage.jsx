@@ -33,6 +33,7 @@ import useAuth from '../../hooks/useAuth'
 import AddToFav from '../../components/AddToFav/AddToFav';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MobileChart from '../../components/chart/MobileChart';
 
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
@@ -482,7 +483,7 @@ const handleLoginClose = () => setLoginShow(false);
                     <div className="tab-content" id="nav-tabContent">
   <div className="tab-pane fade show active" id="home_chart" role="tabpanel" aria-labelledby="home_chart_menu">
     <div id="cruncy-chart">
-    <Chart theme={theme} />
+    <MobileChart theme={theme} />
            
     </div>
   </div>
