@@ -19,6 +19,9 @@ div#navbarSupportedContent {
 .dropdown-menu.sub_menu.show {
     background: #2c343e;
 }
+.otp_button .relative {
+    display: inline-flex;
+}
 button.navbar-toggler{z-index: 2;}
 * {
     font-family: "Montserrat";
