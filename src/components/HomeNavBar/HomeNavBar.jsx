@@ -64,7 +64,7 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
   };
 
   const dispatch = useDispatch();
-  const { tokeninfo, tokenotherinfo } = useSelector(state=>state);
+  const { tokeninfo } = useSelector(state=>state);
   const [highPrice, setHighPrice] = useState(
     localStorage.getItem(`HIGH_PRICE_ALARM_${symbol}`) ?? '',
   );
@@ -157,7 +157,6 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
     setHighPrice(localStorage.getItem(`HIGH_PRICE_ALARM_${symbol}`));
     setHighPriceNotificationSent(false);
     setLowPriceNotificationSent(false);
-   // dispatch(getTokenOtherInfo(symbol));
   }, [symbol]);
 
   useEffect(() => {
@@ -339,10 +338,6 @@ const pasteSymbol = () => {
           console.error('Failed to read clipboard contents: ', err)
       })
 }
-
-
-console.log('anj',tokens);
-
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
     {/* <i className="icon-search"></i> */}

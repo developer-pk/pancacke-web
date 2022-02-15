@@ -3,19 +3,11 @@ import PropTypes from 'prop-types';
 import './SearchElement.scss';
 import Identicon from 'identicon.js';
 import tcakeIcon from '../../assets/logom.png';
-import {  getTokenOtherInfo } from '../../actions/frontend/TokenApiActions'
 import { useDispatch , useSelector, connect } from 'react-redux'
 
 const SearchElement = ({ element, tokenImg }) => {
 
-  // const dispatch = useDispatch();
-  // const { tokenotherinfo } = useSelector(state=>state);
-  // useEffect(() => {
-  // //dispatch(getTokenOtherInfo(element.symbol));
 
-  // }, [element]);
-
-  //console.log(tokenotherinfo,'yes there');
   return (
     <div className="SearchElement">
       {/* <img
