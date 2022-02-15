@@ -50,7 +50,7 @@ const Tabs = ({ dispatch }) => {
                 data-toggle="tab"
                 href="#listing1"
             >
-                New Listings 2
+                New Listings
             </a>
         </li>
         <li>
