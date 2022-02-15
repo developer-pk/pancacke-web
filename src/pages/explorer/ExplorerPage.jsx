@@ -588,7 +588,7 @@ const handleLoginClose = () => setLoginShow(false);
                 )
             )} */}
             <img
-                src={tokenotherinfo.data.images ? tokenotherinfo.data.images['16x16'] : process.env.PUBLIC_URL + '/images/logo-new.png'}
+                src={`https://exchange.pancakeswap.finance/images/coins/${tokenInfo.contractAddress}.png`}
                 onError={(e) => {
                   e.target.onError = null;
                   if (tokenInfo.contractAddress && tokenInfo.contractAddress.length >= 15) {

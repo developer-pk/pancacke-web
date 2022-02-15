@@ -99,7 +99,7 @@ export const getTokenOtherInfo = (symbol) => (dispatch) => {
         .get(`${TOKEN_STAT_API_URL}/${DEFAULT_SERVICE_VERSION}` + '/currencies?api_key='+ `${CRYPTO_API_KEY}` +'&symbols='+ symbol +'&optionalFields=images,links', {
         })
         .then((res) => {
-            //console.log(res,'anj123');
+            console.log(res,'anj123');
             dispatch({
                 type: GET_TOKEN_OTHER_INFO,
                 payload: res.data.data[0] ? res.data.data[0]:{},

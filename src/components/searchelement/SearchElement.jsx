@@ -8,13 +8,14 @@ import { useDispatch , useSelector, connect } from 'react-redux'
 
 const SearchElement = ({ element, tokenImg }) => {
 
-  const dispatch = useDispatch();
-  //const { tokenotherinfo } = useSelector(state=>state);
-  useEffect(() => {
-    //dispatch(getTokenOtherInfo(element.symbol));
-  }, [element]);
+  // const dispatch = useDispatch();
+  // const { tokenotherinfo } = useSelector(state=>state);
+  // useEffect(() => {
+  // //dispatch(getTokenOtherInfo(element.symbol));
 
-  //console.log(tokenotherinfo)
+  // }, [element]);
+
+  //console.log(tokenotherinfo,'yes there');
   return (
     <div className="SearchElement">
       {/* <img
@@ -29,8 +30,23 @@ const SearchElement = ({ element, tokenImg }) => {
                                         }}
                                         alt={val.symbol} className="token-img-auto" 
                                 /> */}
+      {/* <img
+        src={(element.symbol == tokenotherinfo.data.symbol ) ? (tokenotherinfo.data.images ? tokenotherinfo.data.images['16x16'] : `https://pancakeswap.finance/images/tokens/${element.contractAddress}.png`) : `https://pancakeswap.finance/images/tokens/${element.contractAddress}.png`}
+        onError={(e) => {
+          e.target.onError = null;
+          if (element.contractAddress.length >= 15) {
+            element.symbol === 'Tcake'
+              ? (e.target.src = tcakeIcon)
+              : (e.target.src = `data:image/png;base64,${new Identicon(
+                  element.contractAddress,
+                  '200',
+                ).toString()}`);
+          }
+        }}
+        alt={element.symbol}
+      /> */}
       <img
-        src={(element.symbol == tokenImg.data.symbol ) ? (tokenImg.data.images ? tokenImg.data.images['16x16'] : `https://pancakeswap.finance/images/tokens/${element.contractAddress}.png`) : `https://pancakeswap.finance/images/tokens/${element.contractAddress}.png`}
+        src={`https://pancakeswap.finance/images/tokens/${element.contractAddress}.png`}
         onError={(e) => {
           e.target.onError = null;
           if (element.contractAddress.length >= 15) {

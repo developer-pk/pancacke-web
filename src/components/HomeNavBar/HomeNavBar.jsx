@@ -157,7 +157,7 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
     setHighPrice(localStorage.getItem(`HIGH_PRICE_ALARM_${symbol}`));
     setHighPriceNotificationSent(false);
     setLowPriceNotificationSent(false);
-    dispatch(getTokenOtherInfo(symbol));
+   // dispatch(getTokenOtherInfo(symbol));
   }, [symbol]);
 
   useEffect(() => {
@@ -222,6 +222,7 @@ const HomeNavBar = ({ currentPrice, symbol }) => {
         if (res.success) {
           console.log('tokens: ', res.data);
           setTokens(res.data);
+
         }
       });
       
@@ -338,7 +339,10 @@ const pasteSymbol = () => {
           console.error('Failed to read clipboard contents: ', err)
       })
 }
-console.log('anj',tokenotherinfo);
+
+
+console.log('anj',tokens);
+
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
     {/* <i className="icon-search"></i> */}
@@ -367,12 +371,11 @@ const DropdownIndicator = (props) => (
             value={null}
             options={tokens.reduce((acc, current) => {
               acc.push({
-                label: <SearchElement element={current} tokenImg={tokenotherinfo} />,
+                label: <SearchElement element={current} />,
                 value: current.symbol + '/' + current.contractAddress,
               });
               return acc;
             }, [])}
-            open
             styles={{
               input: (css) => ({
                 ...css,

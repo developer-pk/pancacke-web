@@ -100,7 +100,7 @@ const Otp = ({ dispatch }) => {
                 <Grid container>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <div className="p-8 h-full bg-light-gray relative">
-                            <ValidatorForm className="login_form" onSubmit={handleFormSubmit}>
+                            <ValidatorForm className="login_form otp_login" onSubmit={handleFormSubmit}>
                                 <TextValidator
                                     className="mb-6 w-full"
                                     variant="outlined"
@@ -120,7 +120,7 @@ const Otp = ({ dispatch }) => {
                                     <p className="text-error">{message}</p>
                                 )}
 
-                                <div className="flex flex-wrap items-center mb-4">
+                                <div className="flex flex-wrap items-center mb-4 otp_button">
                                     <div className="relative">
                                         <Button
                                             variant="contained"
