@@ -31,6 +31,7 @@ import TcakeReducer from './frontend/TcakeReducer'
 import PromotedTokenReducer from './admin/promoted_token/PromotedTokenReducer'
 import InboundTokenReducer from './frontend/InboundTokenReducer'
 import EcommerceReducer from './EcommerceReducer'
+import TokenReducer from './admin/upload_token/TokenReducer'
 
 export default combineReducers({
   Wallet,
@@ -65,4 +66,5 @@ export default combineReducers({
   promotedtokens:PromotedTokenReducer,
   inbound:InboundTokenReducer,
   ecommerce: EcommerceReducer,
+  tokenImage: TokenReducer,
 });

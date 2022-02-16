@@ -20,6 +20,9 @@ const Sidebar = () => {
                 <a href="/alerts" className="iq-waves-effect"><i className="las la-bell" /><span>Alerts</span></a>
               </li>
               <li>
+                <a href="/tokens" className="iq-waves-effect"><i className="las la-toolbox" /><span>Tokens</span></a>
+              </li>
+              <li>
                 <a href="/promoted-tokens" className="iq-waves-effect"><i className="las la-toolbox" /><span>Promoted Tokens</span></a>
               </li>
               <li>

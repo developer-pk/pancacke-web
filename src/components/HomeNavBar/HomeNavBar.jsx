@@ -261,6 +261,10 @@ const [state, setState] = useState({})
     const iconGet = localStorage.getItem('icon-click');
     setLoginShow(false);
 
+    if(role == 'admin'){
+      history.push('/dashboard');
+    }
+
     if(iconGet == 'alert'){
         setShow(true);
     }

@@ -23,6 +23,8 @@ import AddAds from './pages/admin/ads/AddAds';
 import AdsList from './pages/admin/ads/AdsList';
 import AlertList from './pages/admin/alerts/AlertList';
 import PromotedTokenList from './pages/admin/promoted_tokens/PromotedTokenList';
+import TokenList from './pages/admin/upload_tokens/TokenList';
+import AddToken from './pages/admin/upload_tokens/AddToken';
 import ContactList from './pages/admin/contacts/ContactList';
 import useAuth from './hooks/useAuth';
 // import MatxTheme from './components/MatxTheme/MatxTheme';
@@ -46,6 +48,7 @@ const client = new QueryClient();
 function App() {
   const { theme, toggle } = useContext(ThemeContext);
   const history = useHistory();
+  //console.log(history,'histroy');
   const dispatch = useDispatch();
   const {
     isAuthenticated,
@@ -114,6 +117,12 @@ function App() {
                 </Route>
                 <Route path="/promoted-tokens">
                   <PromotedTokenList />
+                </Route>
+                <Route path="/tokens">
+                  <TokenList />
+                </Route>
+                <Route path="/add-token">
+                  <AddToken />
                 </Route>
                 <Route path="/contacts">
                   <ContactList />

@@ -1,0 +1,7 @@
+.MuiGrid-container{
+    background: white !important;
+    justify-content:left !important;
+}
+.MuiSelect-outlined.MuiSelect-outlined{
+    padding-right:65px !important;
+}

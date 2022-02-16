@@ -34,9 +34,9 @@ console.log(user,'userconsole');
               <ul className="navbar-nav ml-auto navbar-list">
                 <li>
                   <a href="profile.html" className="iq-waves-effect d-flex align-items-center">
-                    <img src={user.avatar} className="img-fluid rounded-circle mr-3" alt="user" />
+                    <img src="" className="img-fluid rounded-circle mr-3" alt="user" />
                     <div className="caption">
-                      <h6 className="mb-0 line-height">{user.firstname} {user.lastname}</h6>
+                      <h6 className="mb-0 line-height">superadmin</h6>
                     </div>
                   </a>
                 </li>
@@ -271,7 +271,7 @@ console.log(user,'userconsole');
                     <div className="iq-card shadow-none m-0">
                       <div className="iq-card-body p-0 ">
                         <div className="bg-primary p-3 line-height">
-                          <h5 className="mb-0 text-white line-height">Hello {user.firstname} {user.lastname}</h5>
+                          <h5 className="mb-0 text-white line-height">Hello test name</h5>
                           <span className="text-white font-size-12">Available</span>
                         </div>
                         <a href="profile.html" className="iq-sub-card iq-bg-primary-hover">

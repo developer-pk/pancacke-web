@@ -21,6 +21,7 @@ export const GET_FAVOURITE_LIST = 'GET_FAVOURITE_LIST'
 export const GET_TRENDS = 'GET_TRENDS'
 export const GET_TCAKE = 'GET_TCAKE'
 export const GET_INBOUND = 'GET_INBOUND'
+export const GET_TOKEN = 'GET_TOKEN'
 const accessToken = window.localStorage.getItem('accessToken')
 const refreshToken = window.localStorage.getItem('refreshToken')
 const email = window.localStorage.getItem('email')
@@ -314,3 +315,35 @@ export const getTokenCakeData = (token) => (dispatch) => {
     })
   
   }
+
+export const getTokens = () => (dispatch) => {
+    axios
+        .get(`${SERVICE_URL}/${DEFAULT_SERVICE_VERSION}` + '/token-image/', {
+            headers: {
+                Authorization: 'Bearer ' + accessToken,
+            },
+        })
+        .then((res) => {
+           // history.push('/token')
+            dispatch({
+                type: GET_TOKEN,
+                payload: res.data,
+            })
+        })
+        .catch((error) => {
+            if(error){
+                if (
+                    error.response.data.code == 401 &&
+                    (error.response.data.message == 'jwt expired' ||
+                        error.response.data.message == 'jwt malformed')
+                ) {
+                    generateRefreshToken()
+                } else if (error.response.status == 400 || error.response.status == 403) {
+                    toast.error(error.response.data.message)
+                }else {
+                    console.log(error.response,'error');
+                    toast.error(error.response.data.errors[0].messages[0])
+                }
+            }
+        })
+}

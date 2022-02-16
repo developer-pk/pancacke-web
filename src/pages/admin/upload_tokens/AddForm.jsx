@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {createAds} from '../../../actions/admin/ads/AdsActions'
+import {createToken} from '../../../actions/admin/upload_token/TokenActions'
 import { connect } from 'react-redux';
 import history from '../../../history.js'
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
@@ -18,6 +18,7 @@ import {
     Fab
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { ToastContainer, toast } from 'material-react-toastify';
 import './Token.css';
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     cardHolder: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
         margin: '1rem',
     },
 }))
-const AddPromotedForm = ({ dispatch }) => {
+const AddForm = ({ dispatch }) => {
     const [selectedFile, setFile] = useState('')
     const [state, setState] = useState({
         date: new Date(),
@@ -39,17 +40,7 @@ const AddPromotedForm = ({ dispatch }) => {
         ``
     )
     const classes = useStyles()
-    useEffect(() => {
-        ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
-            console.log(value)
 
-            if (value !== state.password) {
-                return false
-            }
-            return true
-        })
-        return () => ValidatorForm.removeValidationRule('isPasswordMatch')
-    }, [state.password])
 
     const handleSubmit = (event) => {
 
@@ -59,7 +50,15 @@ const AddPromotedForm = ({ dispatch }) => {
                 
                 formData.append(
                     "contractAddress",
-                    state.contract_address
+                    state.token_address
+                );
+                formData.append(
+                    "symbol",
+                    state.token_symbol
+                );
+                formData.append(
+                    "tokenName",
+                    state.token_name
                 );
                 formData.append(
                     "status",
@@ -70,19 +69,12 @@ const AddPromotedForm = ({ dispatch }) => {
                     selectedFile,
                     selectedFile.name
                 );
-                // formData.append(
-                //     "image",
-                //     selectedFile.name
-                // );
-                // Display the values
-for (var value of formData.values()) {
-    console.log(value);
- }
+
                 console.log(formData.values(),'printdata');
-            const params = {contractAddress:state.contract_address,tokens:formData,status:state.Status};
-            dispatch(createPromotedToken(formData));
-         //   toast.success("Ads added successfully.");
-            history.push('/promoted-token/list')
+            const params = {contractAddress:state.token_address,tokens:formData,status:state.Status};
+            dispatch(createToken(formData));
+           toast.success("Token added successfully.");
+            history.push('/tokens')
 
       
     }
@@ -110,7 +102,9 @@ for (var value of formData.values()) {
       }
 
     const {
-        contract_address,
+        token_address,
+        token_name,
+        token_symbol,
         image,
         Status,
     } = state
@@ -124,30 +118,44 @@ for (var value of formData.values()) {
               <div className="iq-card">
         <div className="iq-card-header d-flex justify-content-between">
           <div className="iq-header-title">
-            <h4 className="card-title">Add Promoted Tokens</h4>
+            <h4 className="card-title">Add Tokens</h4>
           </div>
         </div>
         <div className="iq-card-body">
         <ValidatorForm onSubmit={handleSubmit} onError={() => null}>
-            <ToastContainer position="top-right"
-                                autoClose={3000}
-                                hideProgressBar
-                                newestOnTop={false}
-                                closeOnClick
-                                rtl={false}
-                                pauseOnFocusLoss
-                                draggable
-                                pauseOnHover />
+          
                 <Grid container spacing={6}>
                     <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <TextValidator
+                        variant="outlined"
+                            className="mb-4 w-full"
+                            label="Token Name"
+                            onChange={handleChange}
+                            type="text"
+                            name="token_name"
+                            value={token_name || ''}
+                            validators={['required']}
+                            errorMessages={['this field is required']}
+                        />
                         <TextValidator
                         variant="outlined"
                             className="mb-4 w-full"
-                            label="Contract Address"
+                            label="Token Symbol"
                             onChange={handleChange}
                             type="text"
-                            name="contract_address"
-                            value={contract_address || ''}
+                            name="token_symbol"
+                            value={token_symbol || ''}
+                            validators={['required']}
+                            errorMessages={['this field is required']}
+                        />
+                        <TextValidator
+                        variant="outlined"
+                            className="mb-4 w-full"
+                            label="Token Address"
+                            onChange={handleChange}
+                            type="text"
+                            name="token_address"
+                            value={token_address || ''}
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />
@@ -178,8 +186,8 @@ for (var value of formData.values()) {
                     </Grid>
                 </Grid>
                 <Button color="primary" variant="contained" type="submit">
-                    <Icon>send</Icon>
-                    <span className="pl-2 capitalize">Save</span>
+                   
+                    <span className="capitalize">Save</span>
                 </Button>
             </ValidatorForm>
         </div>
@@ -192,4 +200,4 @@ for (var value of formData.values()) {
   );
 };
 
-export default connect()(AddPromotedForm);
+export default connect()(AddForm);

@@ -195,6 +195,7 @@ const handleLoginClose = () => setLoginShow(false);
           setTokens(res.data);
         }
       });
+
   }, [searchInput]);
 
   useEffect(() => {
@@ -652,7 +653,7 @@ const handleLoginClose = () => setLoginShow(false);
             <div className="tokenPrice">
             <div className="price">
               <h5>PRICE: <span>${parsedCurrentPrice()}</span></h5>
-            <p>PRICE 24h CHANGE: <span>  
+              <p>PRICE 24h CHANGE: <span>  
                {Number(
                     params.version === 'v2' ? tokenInfo.last24hChangeV2 : tokenInfo.last24hChange,
                   ) >= 0
@@ -701,6 +702,8 @@ const handleLoginClose = () => setLoginShow(false);
                 </span>
               </h3> */}
             </div>
+
+
 
             <div className="copy left_side">
                                         {/* 0x3ee2......435d47{' '} */}

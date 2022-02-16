@@ -4,7 +4,7 @@ import {
   Icon,
 } from '@material-ui/core'
 import { connect } from 'react-redux';
-import {getPromotedToken, deletePromotedToken} from '../../../actions/admin/promoted_token/PromotedTokenActions'
+import {getToken, deleteToken} from '../../../actions/admin/upload_token/TokenActions'
 import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { SERVICE_URL, DEFAULT_SERVICE_VERSION } from "../../../constants/utility"
@@ -17,20 +17,20 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
   },
 }))
-const PromotedTokenTable = ({ dispatch }) => {
+const TokenTable = ({ dispatch }) => {
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
      const [page, setPage] = React.useState(0)
      const [industries, setIndustries] = useState([]);
-     const {promotedtokens} = useSelector(state=>state);
+     const {tokenImage} = useSelector(state=>state);
      const [open,setState] = React.useState(false)
      const [industryId,setIndustry] = React.useState()
 
     useEffect(() => {
-            const params={type:'GET_PROMOTEDTOKEN'};
-            dispatch(getPromotedToken(params));
+            const params={type:'GET_TOKEN'};
+            dispatch(getToken(params));
 
         }, []);
-        console.log(promotedtokens,'data for me');
+       // console.log(promotedtokens,'data for me');
     const classes = useStyles()
 
     const handleChangePage = (event, newPage) => {
@@ -59,10 +59,10 @@ const PromotedTokenTable = ({ dispatch }) => {
     
       const handleAgree = () => {
         console.log("I agree!",industryId);
-        dispatch(deletePromotedToken(industryId));
+        dispatch(deleteToken(industryId));
         handleClose();
-        const params={type:'GET_PROMOTEDTOKEN'};
-        dispatch(getPromotedToken(params));
+        const params={type:'GET_TOKEN'};
+        dispatch(getToken(params));
       };
       const handleDisagree = () => {
         console.log("I do not agree.");
@@ -78,18 +78,20 @@ const PromotedTokenTable = ({ dispatch }) => {
               <div className="iq-card">
         <div className="iq-card-header d-flex justify-content-between">
           <div className="iq-header-title">
-            <h4 className="card-title">Ads</h4>
+            <h4 className="card-title">Tokens</h4>
           </div>
         </div>
         <div className="iq-card-body">
           <div id="table" className="table-editable">
             <span className="table-add float-right mb-3 mr-2">
-              <a href="/add-ads" className="btn btn-sm iq-bg-success"><i className="ri-add-fill"><span className="pl-1">Add Ads</span></i>
+              <a href="/add-token" className="btn btn-sm iq-bg-success"><i className="ri-add-fill"><span className="pl-1">Add Token</span></i>
               </a>
             </span>
             <table class="table table-hover">
                               <thead>
                                  <tr>
+                                    <th scope="col">Token Name</th>
+                                    <th scope="col">Token Symbol</th>
                                     <th scope="col">Contract Address</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Created Date</th>
@@ -97,13 +99,15 @@ const PromotedTokenTable = ({ dispatch }) => {
                                  </tr>
                               </thead>
                               <tbody>
-                              {promotedtokens.slice(
+                              {tokenImage.slice(
                             page * rowsPerPage,
                             page * rowsPerPage + rowsPerPage
                         ).map((indus, index) => (
                                  <tr>
+                                   <th scope="row">{indus.tokenName}</th>
+                                   <th scope="row">{indus.symbol}</th>
                                     <th scope="row">{indus.contractAddress}</th>
-                                    <td> {(indus.image) ? <img src={SERVICE_URL+"/uploads/tokens/"+indus.image}/> : ''}</td>
+                                    <td> {(indus.image) ? <img src={SERVICE_URL+"/uploads/tokenImages/"+indus.image} /> : ''}</td>
                                     <td>{indus.createdAt}</td>
                                     <td><IconButton onClick={() => handleClickOpen(indus.id)}>
                                         <Icon color="error">close</Icon>
@@ -123,4 +127,4 @@ const PromotedTokenTable = ({ dispatch }) => {
   );
 };
 
-export default connect()(PromotedTokenTable);
+export default connect()(TokenTable);
