@@ -38,7 +38,7 @@ const SearchElement = ({ element, tokenImg }) => {
         alt={element.symbol}
       /> */}
       <img
-        src={`https://pancakeswap.finance/images/tokens/${element.contractAddress}.png`}
+        src={`https://bsczoneapp.webtracktechnology.com:3001/uploads/tokenImages/${element.symbol.toLowerCase()}.png`}
         onError={(e) => {
           e.target.onError = null;
           if (element.contractAddress.length >= 15) {

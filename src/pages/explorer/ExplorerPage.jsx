@@ -591,7 +591,7 @@ const handleLoginClose = () => setLoginShow(false);
                 )
             )} */}
             <img
-                src={`https://exchange.pancakeswap.finance/images/coins/${tokenInfo.contractAddress}.png`}
+                src={`https://bsczoneapp.webtracktechnology.com:3001/uploads/tokenImages/${tokenInfo.symbol.toLowerCase()}.png`}
                 onError={(e) => {
                   e.target.onError = null;
                   if (tokenInfo.contractAddress && tokenInfo.contractAddress.length >= 15) {
