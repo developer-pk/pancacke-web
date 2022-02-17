@@ -34,7 +34,8 @@ import AddToFav from '../../components/AddToFav/AddToFav';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MobileChart from '../../components/chart/MobileChart';
-
+import { getTokenOtherInfo } from '../../actions/frontend/TokenApiActions';
+import NumberFormat from 'react-number-format';
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
     <i className="icon-search"></i>
@@ -51,7 +52,7 @@ export const ExplorerPage = ({ theme }) => {
   const [openRem,setConfirmRemoveState] = React.useState(false)
   const [open,setConfirmState] = React.useState(false)
   const [showLogin, setLoginShow] = useState(false);
-  //const {ads} = useSelector(state=>state);
+  //const {tokenotherinfo} = useSelector(state=>state);
   const [tokenInfo, setTokenInfo] = useState({
     pair: 'BNB/TCAKE',
     name: 'TCAKE',
@@ -168,7 +169,9 @@ const handleLoginClose = () => setLoginShow(false);
     dispatch(ViewActions.updateToken(params.pair, params.contract, params.version, '0x'));
 
     window.addEventListener('resize', updateWidth);
-
+    if(tokenInfo.symbol){
+      dispatch(getTokenOtherInfo(tokenInfo.symbol));
+    }
     return () => {
       window.removeEventListener('resize', updateWidth);
     };
@@ -195,7 +198,7 @@ const handleLoginClose = () => setLoginShow(false);
           setTokens(res.data);
         }
       });
-
+console.log(searchInput,'search input');
   }, [searchInput]);
 
   useEffect(() => {
@@ -264,6 +267,8 @@ const handleLoginClose = () => setLoginShow(false);
     });
   }, [tokenPrice.price]);
 
+
+
   if (!ethers.utils.isAddress(params.contract)) {
     history.push('/pair-explorer/Tcake/0x3b831d36ed418e893f42d46ff308c326c239429f/v2');
   }
@@ -275,7 +280,7 @@ const handleLoginClose = () => setLoginShow(false);
       const  handleFavRemoveClose = () => {
         setConfirmRemoveState(false);
     };
-
+console.log(tokenotherinfo,'token other');
     const [copied, setCopy] = useState(false);
 
     const [getAddress, setAddress] = React.useState('0x3b831d36ed418e893f42d46ff308c326c239429f')
@@ -590,7 +595,7 @@ const handleLoginClose = () => setLoginShow(false);
                     </a>
                 )
             )} */}
-            <img
+            {tokenInfo.symbol ? <img
                 src={`https://bsczoneapp.webtracktechnology.com:3001/uploads/tokenImages/${tokenInfo.symbol.toLowerCase()}.png`}
                 onError={(e) => {
                   e.target.onError = null;
@@ -604,22 +609,23 @@ const handleLoginClose = () => setLoginShow(false);
                   }
                 }}
                 alt={tokenInfo.symbol}
-              />
-             {/* <img
-                src={`https://exchange.pancakeswap.finance/images/coins/${tokenInfo.contractAddress}.png`}
-                onError={(e) => {
-                  e.target.onError = null;
-                  if (tokenInfo.contractAddress && tokenInfo.contractAddress.length >= 15) {
-                    tokenInfo.symbol === 'Tcake'
-                      ? (e.target.src = tcakeLogo)
-                      : (e.target.src = `data:image/png;base64,${new Identicon(
-                          tokenInfo.contractAddress,
-                          200,
-                        ).toString()}`);
-                  }
-                }}
-                alt={tokenInfo.symbol}
-              /> */}
+              /> :             <img
+              src={`https://exchange.pancakeswap.finance/images/coins/${tokenInfo.contractAddress}.png`}
+              onError={(e) => {
+                e.target.onError = null;
+                if (tokenInfo.contractAddress && tokenInfo.contractAddress.length >= 15) {
+                  tokenInfo.symbol === 'Tcake'
+                    ? (e.target.src = tcakeLogo)
+                    : (e.target.src = `data:image/png;base64,${new Identicon(
+                        tokenInfo.contractAddress,
+                        200,
+                      ).toString()}`);
+                }
+              }}
+              alt={tokenInfo.symbol}
+            /> }
+            
+  
               <h2>{tokenInfo.symbol}</h2>
              
             </div>
@@ -701,6 +707,40 @@ const handleLoginClose = () => setLoginShow(false);
                   %
                 </span>
               </h3> */}
+            </div>
+            <hr />
+            <div className="market_cap">
+              <p>
+                  MARKET CAP:{' '}
+                  {tokenotherinfo.data.values ? 
+                      // tokenotherinfo[0].data.map((token, index) =>
+
+                      <NumberFormat value={tokenotherinfo.data.values.USD.marketCap} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2} />
+                  //)
+                      : <span>$399,578.08</span> }
+                  
+              </p>
+              <p>
+                  VOLUME 24H:{' '}
+                  {tokenotherinfo.data.values ? 
+                      //tokenotherinfo[0].data.map((token, index) =>
+                      <NumberFormat value={tokenotherinfo.data.values.USD.volume24h} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                  
+                      : <span>N/A</span> }
+                  {/* <span>$4,832,839,159</span> */}
+              </p>
+              <p>
+                  TOTAL SUPPLY:{' '}
+                  {tokenotherinfo.data.totalSupply ? 
+                      //tokenotherinfo[0].data.map((token, index) =>
+                      <span className="number">{tokenotherinfo.data.totalSupply}</span>
+                  //)
+                      : <span> <NumberFormat value='178,499,565.878013' displayType={'text'} thousandSeparator={true} decimalScale={2} /></span> }
+                  {/* <span>33,117,618,880</span> */}
+              </p>
+              <p>
+                  LIQUIDITY: <span>N/A</span>
+              </p>
             </div>
 
 
