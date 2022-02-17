@@ -9,9 +9,9 @@
     padding-left:0px !important;
     padding-right:0px !important;
 }
-.dark{
-    background-color: #ccc !important;
-}
+/* .App.dark {
+    background: #fff;
+} */
 .table-editable table.table tbody tr:hover {
     background: #fff;
 }
@@ -41,6 +41,7 @@ button.MuiButtonBase-root.MuiIconButton-root {
 }
 div#content-page {
     margin-top: 15px;
+    background-color:#fff;
 }
 
 

@@ -62,7 +62,7 @@ function App() {
     dispatch(SubscriptionsActions.getSubscriptionData());
     dispatch(AdvertsActions.fetchAdverts());
   }, []);
-
+  
   return (
     <div className={`App ${theme}`}>
       <QueryClientProvider client={client}>
