@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import { Tabs, Tab } from '@material-ui/core';
 import TopNav from '../../../components/TopNavBar/TopNav';
 import Sidebar from '../../../components/Sidebar/Sidebar';
-import '../../explorer/ExplorerPage.scss';
+
 import AddForm from './AddForm';
+import '../../../css/common.css';
+import useAuth from '../../../hooks/useAuth';
 
 const AddToken = () => {
   const [tabIndex, setTabIndex] = useState(0);
-
+  const {
+    isAuthenticated,
+    // user
+  } = useAuth();
+  let authenticated = isAuthenticated;
   return (
-      <div className="ExplorerPage">
+      <div className="TokenPage">
         <div className="Row">
       <div className="col-md-12">
         <TopNav />
@@ -17,7 +23,7 @@ const AddToken = () => {
       </div>
       <div className="Row">
 
-      <div className="col-md-2">
+      <div className="col-md-2  pl-0">
         <Sidebar />
       </div>
 

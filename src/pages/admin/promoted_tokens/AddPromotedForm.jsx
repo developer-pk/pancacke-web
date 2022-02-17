@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {createAds} from '../../../actions/admin/ads/AdsActions'
+import React, { useState, useEffect } from 'react';
+import {createPromotedToken} from '../../../actions/admin/promoted_token/PromotedTokenActions'
 import { connect } from 'react-redux';
 import history from '../../../history.js'
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
@@ -19,6 +19,8 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import './Token.css';
+import { ToastContainer } from 'material-react-toastify';
+
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     cardHolder: {
         background: '#1A2038',
@@ -82,7 +84,7 @@ for (var value of formData.values()) {
             const params = {contractAddress:state.contract_address,tokens:formData,status:state.Status};
             dispatch(createPromotedToken(formData));
          //   toast.success("Ads added successfully.");
-            history.push('/promoted-token/list')
+            history.push('/promoted-tokens')
 
       
     }
@@ -124,7 +126,7 @@ for (var value of formData.values()) {
               <div className="iq-card">
         <div className="iq-card-header d-flex justify-content-between">
           <div className="iq-header-title">
-            <h4 className="card-title">Add Promoted Tokens</h4>
+            <h4 className="card-title">Add Promoted Token</h4>
           </div>
         </div>
         <div className="iq-card-body">
@@ -178,7 +180,7 @@ for (var value of formData.values()) {
                     </Grid>
                 </Grid>
                 <Button color="primary" variant="contained" type="submit">
-                    <Icon>send</Icon>
+                   
                     <span className="pl-2 capitalize">Save</span>
                 </Button>
             </ValidatorForm>

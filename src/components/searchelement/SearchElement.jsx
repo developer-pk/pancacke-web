@@ -44,10 +44,7 @@ const SearchElement = ({ element, tokenImg }) => {
           if (element.contractAddress.length >= 15) {
             element.symbol === 'Tcake'
               ? (e.target.src = tcakeIcon)
-              : (e.target.src = `data:image/png;base64,${new Identicon(
-                  element.contractAddress,
-                  '200',
-                ).toString()}`);
+              : (e.target.src = process.env.PUBLIC_URL + '/images/Emoji_Icon_-_Thinking_large.webp');
           }
         }}
         alt={element.symbol}

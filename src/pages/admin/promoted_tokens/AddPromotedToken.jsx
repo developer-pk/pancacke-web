@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Tabs, Tab } from '@material-ui/core';
 import TopNav from '../../../components/TopNavBar/TopNav';
 import Sidebar from '../../../components/Sidebar/Sidebar';
-import '../../explorer/ExplorerPage.scss';
+import '../../../css/common.css';
 import AddPromotedForm from './AddPromotedForm';
 
 const AddPromotedToken = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
-      <div className="ExplorerPage">
+      <div className="PromotedPage">
         <div className="Row">
       <div className="col-md-12">
         <TopNav />
@@ -17,7 +17,7 @@ const AddPromotedToken = () => {
       </div>
       <div className="Row">
 
-      <div className="col-md-2">
+      <div className="col-md-2 pl-0">
         <Sidebar />
       </div>
 

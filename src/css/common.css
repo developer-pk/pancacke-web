@@ -1,0 +1,75 @@
+ .Row {
+      display: flex;
+      flex-direction: row;
+ }
+.pl-0{
+    padding-left:0px !important;
+}
+.Container{
+    padding-left:0px !important;
+    padding-right:0px !important;
+}
+.dark{
+    background-color: #ccc !important;
+}
+.table-editable table.table tbody tr:hover {
+    background: #fff;
+}
+.table-editable tr img {
+    width: 25px;
+    height: 25px;
+}
+.table-editable  tbody tr td {
+    text-align: left;
+}
+.table-hover>tbody>tr:hover>* {
+    background: none;
+}
+
+span.material-icons.MuiIcon-root.MuiIcon-colorError {
+    width: auto;
+    font-size: 16px;
+}
+button.MuiButtonBase-root.MuiIconButton-root {
+    margin: 0;
+    padding: 0;
+}
+.dark table tbody tr td {
+    color: #767f8b;
+    background: none;border-radius: 0px;
+    
+}
+div#content-page {
+    margin-top: 15px;
+}
+
+
+.iq-sub-dropdown.iq-user-dropdown .bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: #ebcc86!important;
+}
+.iq-sidebar-menu .iq-menu li a:hover {
+    color: #ebcc86;
+}
+.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-6 {
+    margin: 0;
+    width: 100%;
+}
+form .MuiGrid-spacing-xs-6 > .MuiGrid-item {
+    background: rgb(235 204 134 / 18%);
+    margin-bottom: 15px;
+}
+.dark table thead tr th {
+    color: #000;}
+    .add_td  {
+      word-break: break-all;
+    }
+   .add_title {    MIN-WIDTH: 360px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+   

@@ -8,6 +8,7 @@ import {getPromotedToken, deletePromotedToken} from '../../../actions/admin/prom
 import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { SERVICE_URL, DEFAULT_SERVICE_VERSION } from "../../../constants/utility"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -78,13 +79,13 @@ const PromotedTokenTable = ({ dispatch }) => {
               <div className="iq-card">
         <div className="iq-card-header d-flex justify-content-between">
           <div className="iq-header-title">
-            <h4 className="card-title">Ads</h4>
+            <h4 className="card-title">Promoted Tokens</h4>
           </div>
         </div>
         <div className="iq-card-body">
           <div id="table" className="table-editable">
             <span className="table-add float-right mb-3 mr-2">
-              <a href="/add-ads" className="btn btn-sm iq-bg-success"><i className="ri-add-fill"><span className="pl-1">Add Ads</span></i>
+              <a href="/promoted-token/add" className="btn btn-sm iq-bg-success"><i className="ri-add-fill"><span className="pl-1">Add Promoted Token</span></i>
               </a>
             </span>
             <table class="table table-hover">
@@ -102,11 +103,11 @@ const PromotedTokenTable = ({ dispatch }) => {
                             page * rowsPerPage + rowsPerPage
                         ).map((indus, index) => (
                                  <tr>
-                                    <th scope="row">{indus.contractAddress}</th>
+                                    <td scope="row">{indus.contractAddress}</td>
                                     <td> {(indus.image) ? <img src={SERVICE_URL+"/uploads/tokens/"+indus.image}/> : ''}</td>
                                     <td>{indus.createdAt}</td>
                                     <td><IconButton onClick={() => handleClickOpen(indus.id)}>
-                                        <Icon color="error">close</Icon>
+                                        <FontAwesomeIcon icon={['fas', 'close']} />
                                     </IconButton></td>
                                  </tr>
                                   ))}

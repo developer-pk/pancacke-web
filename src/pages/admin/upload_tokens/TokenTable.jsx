@@ -8,6 +8,7 @@ import {getToken, deleteToken} from '../../../actions/admin/upload_token/TokenAc
 import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { SERVICE_URL, DEFAULT_SERVICE_VERSION } from "../../../constants/utility"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -110,7 +111,7 @@ const TokenTable = ({ dispatch }) => {
                                     <td> {(indus.image) ? <img src={SERVICE_URL+"/uploads/tokenImages/"+indus.image} /> : ''}</td>
                                     <td>{indus.createdAt}</td>
                                     <td><IconButton onClick={() => handleClickOpen(indus.id)}>
-                                        <Icon color="error">close</Icon>
+                                    <FontAwesomeIcon icon={['fas', 'close']} />
                                     </IconButton></td>
                                  </tr>
                                   ))}

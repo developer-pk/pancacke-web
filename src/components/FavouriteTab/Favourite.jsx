@@ -84,6 +84,10 @@ const handleLoginFormSubmit = async (event,values) => {
   const iconGet = localStorage.getItem('icon-click');
   setLoginShow(false);
 
+  if(role == 'admin'){
+      history.push('/ads');
+  }
+
   if(iconGet == 'alert'){
       setShow(true);
   }

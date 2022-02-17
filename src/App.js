@@ -25,6 +25,7 @@ import AlertList from './pages/admin/alerts/AlertList';
 import PromotedTokenList from './pages/admin/promoted_tokens/PromotedTokenList';
 import TokenList from './pages/admin/upload_tokens/TokenList';
 import AddToken from './pages/admin/upload_tokens/AddToken';
+import AddPromotedToken from './pages/admin/promoted_tokens/AddPromotedToken';
 import ContactList from './pages/admin/contacts/ContactList';
 import useAuth from './hooks/useAuth';
 // import MatxTheme from './components/MatxTheme/MatxTheme';
@@ -40,8 +41,8 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Login from './pages/Login/Login';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faHeart, faBell, faTimes, faCopy, faAngleDown } from '@fortawesome/free-solid-svg-icons'
-library.add(fab,faHeart,faBell,faTimes,faCopy,faAngleDown);
+import { faCheckSquare, faHeart, faBell, faTimes, faCopy, faAngleDown, faClose } from '@fortawesome/free-solid-svg-icons'
+library.add(fab,faHeart,faBell,faTimes,faCopy,faAngleDown,faClose);
 
 const client = new QueryClient();
 
@@ -117,6 +118,9 @@ function App() {
                 </Route>
                 <Route path="/promoted-tokens">
                   <PromotedTokenList />
+                </Route>
+                <Route path="/promoted-token/add">
+                  <AddPromotedToken />
                 </Route>
                 <Route path="/tokens">
                   <TokenList />

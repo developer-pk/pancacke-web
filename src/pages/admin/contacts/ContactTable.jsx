@@ -15,6 +15,7 @@ import {
   TablePagination,
   Button
 } from '@material-ui/core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -116,7 +117,7 @@ const ContactTable = ({ dispatch }) => {
                                     </IconButton>
                                     </Link> 
                                     <IconButton onClick={() => handleClickOpen(contact.id)}>
-                                        <Icon color="error">close</Icon>
+                                    <FontAwesomeIcon icon={['fas', 'close']} />
                                     </IconButton>
                                     </td>
                                  </tr>

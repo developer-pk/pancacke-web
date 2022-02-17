@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Tabs, Tab } from '@material-ui/core';
 import TopNav from '../../../components/TopNavBar/TopNav';
 import Sidebar from '../../../components/Sidebar/Sidebar';
-import '../../explorer/ExplorerPage.scss';
+import '../../../css/common.css';
 import PromotedTokenTable from './PromotedTokenTable';
 
 const PromotedTokenList = () => {
@@ -17,7 +17,7 @@ const PromotedTokenList = () => {
       </div>
       <div className="Row">
 
-      <div className="col-md-2">
+      <div className="col-md-2 pl-0">
         <Sidebar />
       </div>
 

@@ -20,6 +20,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import { ToastContainer, toast } from 'material-react-toastify';
 import './Token.css';
+
 const useStyles = makeStyles(({ palette, ...theme }) => ({
     cardHolder: {
         background: '#1A2038',
