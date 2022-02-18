@@ -57,32 +57,24 @@ const AddPromotedForm = ({ dispatch }) => {
 
           //console.log(selectedFile[0].base64,'form data');
           // Create an object of formData
-                const formData = new FormData();
+                // const formData = new FormData();
                 
-                formData.append(
-                    "contractAddress",
-                    state.contract_address
-                );
-                formData.append(
-                    "status",
-                    state.Status
-                );
-                formData.append(
-                    "image",
-                    selectedFile,
-                    selectedFile.name
-                );
+                // formData.append(
+                //     "contractAddress",
+                //     state.contract_address
+                // );
+                // formData.append(
+                //     "status",
+                //     state.Status
+                // );
                 // formData.append(
                 //     "image",
+                //     selectedFile,
                 //     selectedFile.name
                 // );
-                // Display the values
-for (var value of formData.values()) {
-    console.log(value);
- }
-                console.log(formData.values(),'printdata');
-            const params = {contractAddress:state.contract_address,tokens:formData,status:state.Status};
-            dispatch(createPromotedToken(formData));
+
+            const params = {contractAddress:state.contract_address,apiData:state.symbol,status:state.Status};
+            dispatch(createPromotedToken(params));
          //   toast.success("Ads added successfully.");
             history.push('/promoted-tokens')
 
@@ -113,7 +105,7 @@ for (var value of formData.values()) {
 
     const {
         contract_address,
-        image,
+        symbol,
         Status,
     } = state
 
@@ -153,13 +145,22 @@ for (var value of formData.values()) {
                             validators={['required']}
                             errorMessages={['this field is required']}
                         />
-                        <div className="mb-3">
+                        <TextValidator
+                        variant="outlined"
+                            className="mb-4 w-full"
+                            label="Symbol"
+                            onChange={handleChange}
+                            type="text"
+                            name="symbol"
+                            value={symbol || ''}
+                            validators={['required']}
+                            errorMessages={['this field is required']}
+                        />
+                        {/* <div className="mb-3">
                             <input type="file" name="image" onChange={onFileChange} />
 
-                            {/* <FileBase64
-                            multiple={ true }
-                            onDone={ getFiles.bind(this) } /> */}
-                        </div>
+
+                        </div> */}
                         <FormControl variant="outlined" className={classes.formControl+" mb-4 w-full"}>
                          <InputLabel id="demo-simple-select-outlined-label">Status</InputLabel>
                             <Select

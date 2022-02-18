@@ -602,10 +602,7 @@ console.log(tokenotherinfo,'token other');
                   if (tokenInfo.contractAddress && tokenInfo.contractAddress.length >= 15) {
                     tokenInfo.symbol === 'Tcake'
                       ? (e.target.src = tcakeLogo)
-                      : (e.target.src = `data:image/png;base64,${new Identicon(
-                          tokenInfo.contractAddress,
-                          200,
-                        ).toString()}`);
+                      : (e.target.src = process.env.PUBLIC_URL + '/images/Emoji_Icon_-_Thinking_large.webp');
                   }
                 }}
                 alt={tokenInfo.symbol}
@@ -616,10 +613,7 @@ console.log(tokenotherinfo,'token other');
                 if (tokenInfo.contractAddress && tokenInfo.contractAddress.length >= 15) {
                   tokenInfo.symbol === 'Tcake'
                     ? (e.target.src = tcakeLogo)
-                    : (e.target.src = `data:image/png;base64,${new Identicon(
-                        tokenInfo.contractAddress,
-                        200,
-                      ).toString()}`);
+                    : (e.target.src = process.env.PUBLIC_URL + '/images/Emoji_Icon_-_Thinking_large.webp');
                 }
               }}
               alt={tokenInfo.symbol}

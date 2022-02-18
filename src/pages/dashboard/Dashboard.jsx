@@ -21,8 +21,8 @@ const Dashboard = () => {
       </div>
 
       <div className="col-md-10">
-        {/* <div id="content-page" className="content-page">
-          <div className="container">
+         <div id="content-page" className="content-page">
+         {/* <div className="container">
             <div className="row">
               <div className="col-sm-12">
                 <div className="iq-card">
@@ -7901,8 +7901,8 @@ const Dashboard = () => {
                 />
               </div>
             </div>
-          </div>
-        </div> */}
+          </div>*/}
+        </div> 
       </div>
     </div>
       </div>
