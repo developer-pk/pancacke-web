@@ -27,6 +27,8 @@ const Promoted = ({ dispatch }) => {
     dispatch(getPromotedToken());
     
 }, [])
+
+console.log(promotedtokens,'promoted');
   /**end */
 
   return (
@@ -37,7 +39,7 @@ const Promoted = ({ dispatch }) => {
         <li>
             <span className="pro_check">
                 {' '}
-               { promoted.image ? <img src={SERVICE_URL+"/uploads/tokens/"+promoted.image} className="trend-img" onError={(e) => {
+               { promoted.apiData ? <img src={`https://bsczoneapp.webtracktechnology.com:3001/uploads/tokenImages/${promoted.apiData.toLowerCase()}.png`} className="trend-img" onError={(e) => {
                 e.target.onError = null;
                 if (promoted.contractAddress >= 15) {
                      (e.target.src = process.env.PUBLIC_URL + '/images/Emoji_Icon_-_Thinking_large.webp');
@@ -45,23 +47,16 @@ const Promoted = ({ dispatch }) => {
                 }} /> : ''}
             </span>{' '}
             <span className="pro_title">
-                                    {
+                                    {promoted.tokenName ? 
                                         promoted
-                                            .apiData[0]
-                                            .smartContract
-                                            .currency
-                                            .name
+                                            .tokenName : ''
                                     }
                                 </span>{' '}
                                 {/* <span className="pro_title" onClick={() => handleSymbolInfo(promoted.contractAddress,promoted.apiData[0].smartContract.currency.name)}> */}
                                 |{' '}
                                 <span className="pro_price">
-                                {
-                                        promoted
-                                            .apiData[0]
-                                            .smartContract
-                                            .currency
-                                            .symbol
+                                {promoted.apiData ? 
+                                        promoted.apiData :''
                                     }
                                 </span>
             {/* |{' '} */}
